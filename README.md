@@ -1,2 +1,2 @@
-# YCFlutterBanner
-轮播图
+# YCFlutterPlugin
+flutter基础库
