@@ -1,10 +1,9 @@
-package com.yczbj.yc_toast
+package com.yc.na_plugin.toast
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.support.v7.widget.CardView
 import android.text.TextUtils
 import android.util.Log
 import android.view.Gravity
@@ -12,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import com.yc.yc_flutter_plugin.R
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler

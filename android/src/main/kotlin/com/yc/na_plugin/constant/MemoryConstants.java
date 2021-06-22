@@ -1,14 +1,15 @@
 package com.yc.na_plugin.constant;
 
-import android.support.annotation.IntDef;
+
+import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
  *     time  : 2017/03/13
  *     desc  : 存储相关常量
  * </pre>

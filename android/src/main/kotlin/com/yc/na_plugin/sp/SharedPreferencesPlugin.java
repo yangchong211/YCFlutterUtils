@@ -1,40 +1,52 @@
 
-package android.src.main.kotlin.com.yc.yc_flutter_plugin.sp;
+
+package com.yc.na_plugin.sp;
 
 import android.content.Context;
+
+import com.yc.na_plugin.base.BaseConstants;
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
 
-/** SharedPreferencesPlugin */
+/**
+ * <pre>
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
+ *     time  : 2019/03/13
+ *     desc  : SharedPreferencesPlugin
+ * </pre>
+ */
 public class SharedPreferencesPlugin implements FlutterPlugin {
-  private static final String CHANNEL_NAME = "plugins.flutter.io/shared_preferences";
-  private MethodChannel channel;
 
-  @SuppressWarnings("deprecation")
-  public static void registerWith(io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
-    final SharedPreferencesPlugin plugin = new SharedPreferencesPlugin();
-    plugin.setupChannel(registrar.messenger(), registrar.context());
-  }
+    private MethodChannel channel;
 
-  @Override
-  public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding binding) {
-    setupChannel(binding.getBinaryMessenger(), binding.getApplicationContext());
-  }
+    @SuppressWarnings("deprecation")
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
+        BinaryMessenger messenger = registrar.messenger();
+        final SharedPreferencesPlugin plugin = new SharedPreferencesPlugin();
+        plugin.setupChannel(messenger, registrar.context());
+    }
 
-  @Override
-  public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding binding) {
-    teardownChannel();
-  }
+    @Override
+    public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding binding) {
+        setupChannel(binding.getBinaryMessenger(), binding.getApplicationContext());
+    }
 
-  private void setupChannel(BinaryMessenger messenger, Context context) {
-    channel = new MethodChannel(messenger, CHANNEL_NAME);
-    MethodCallHandlerImpl handler = new MethodCallHandlerImpl(context);
-    channel.setMethodCallHandler(handler);
-  }
+    @Override
+    public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding binding) {
+        teardownChannel();
+    }
 
-  private void teardownChannel() {
-    channel.setMethodCallHandler(null);
-    channel = null;
-  }
+    private void setupChannel(BinaryMessenger messenger, Context context) {
+        channel = new MethodChannel(messenger, BaseConstants.PATH_SHARED_PREFERENCES_KEY);
+        MethodCallHandlerImpl handler = new MethodCallHandlerImpl(context);
+        channel.setMethodCallHandler(handler);
+    }
+
+    private void teardownChannel() {
+        channel.setMethodCallHandler(null);
+        channel = null;
+    }
 }

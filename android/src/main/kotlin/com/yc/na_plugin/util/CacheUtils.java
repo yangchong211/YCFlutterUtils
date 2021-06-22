@@ -9,8 +9,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Process;
-import android.support.annotation.NonNull;
-import android.support.v4.util.SimpleArrayMap;
+
+import androidx.annotation.NonNull;
+import androidx.collection.SimpleArrayMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,9 +38,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2017/05/24
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
+ *     time  : 2017/03/13
  *     desc  : 缓存相关工具类
  * </pre>
  */

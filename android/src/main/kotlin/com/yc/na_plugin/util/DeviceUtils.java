@@ -14,11 +14,12 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.List;
 
+
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/8/1
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
+ *     time  : 2017/03/13
  *     desc  : 设备相关工具类
  * </pre>
  */

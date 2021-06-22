@@ -4,15 +4,19 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+import androidx.collection.SimpleArrayMap;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
+
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/02
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
+ *     time  : 2019/03/13
  *     desc  : SP 相关工具类
  * </pre>
  */
@@ -20,7 +24,7 @@ import java.util.Set;
 public final class SPUtils {
 
     private static SimpleArrayMap<String, SPUtils> SP_UTILS_MAP = new SimpleArrayMap<>();
-    private SharedPreferences sp;
+    private final SharedPreferences sp;
 
     /**
      * 获取 SP 实例

@@ -4,11 +4,12 @@ import android.os.Environment;
 
 import java.io.File;
 
+
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/09/27
+ *     author: 杨充
+ *     blog  : https://juejin.cn/user/1978776659695784
+ *     time  : 2017/03/13
  *     desc  : 清除相关工具类
  * </pre>
  */
