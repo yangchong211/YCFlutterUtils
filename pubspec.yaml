@@ -11,6 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # https://github.com/a14n/dart-decimal
+  decimal: "0.3.5"
+  # https://github.com/dart-lang/crypto
+  crypto: "2.1.5"
+  # https://github.com/dart-lang/convert
+  convert: "2.1.1"
+
 
 dev_dependencies:
   flutter_test:
