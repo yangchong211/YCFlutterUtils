@@ -2,7 +2,7 @@ import 'dart:convert';
 
 
 /// Json Util.
-class JsonUtil {
+class JsonUtils {
   /// Converts object [value] to a JSON string.
   static String encodeObj(dynamic value) {
     return value == null ? null : json.encode(value);
@@ -15,7 +15,7 @@ class JsonUtil {
       Map map = json.decode(source);
       return f(map);
     } catch (e) {
-      print('JsonUtil convert error, Exception：${e.toString()}');
+      print('JsonUtils convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -32,7 +32,7 @@ class JsonUtil {
       }
       return f(map);
     } catch (e) {
-      print('JsonUtil convert error, Exception：${e.toString()}');
+      print('JsonUtils convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -49,7 +49,7 @@ class JsonUtil {
         return f(value);
       }).toList();
     } catch (e) {
-      print('JsonUtil convert error, Exception：${e.toString()}');
+      print('JsonUtils convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -71,7 +71,7 @@ class JsonUtil {
         return f(value);
       }).toList();
     } catch (e) {
-      print('JsonUtil convert error, Exception：${e.toString()}');
+      print('JsonUtils convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -88,6 +88,6 @@ class JsonUtil {
     }
     return list?.map((v) {
       return v as T;
-    }).toList();
+    })?.toList();
   }
 }
