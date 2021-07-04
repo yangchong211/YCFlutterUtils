@@ -40,7 +40,7 @@ Map<int, int> MONTH_DAY = {
 };
 
 /// Date Util.
-class DateUtil {
+class DateUtils {
   /// get DateTime By DateStr.
   static DateTime getDateTime(String dateStr, {bool isUtc}) {
     DateTime dateTime = DateTime.tryParse(dateStr);
@@ -204,7 +204,7 @@ class DateUtil {
         DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
     DateTime now;
     if (locMs != null) {
-      now = DateUtil.getDateTimeByMs(locMs);
+      now = DateUtils.getDateTimeByMs(locMs);
     } else {
       now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
@@ -242,7 +242,7 @@ class DateUtil {
     DateTime _old = DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
     DateTime _now;
     if (locMs != null) {
-      _now = DateUtil.getDateTimeByMs(locMs, isUtc: isUtc);
+      _now = DateUtils.getDateTimeByMs(locMs, isUtc: isUtc);
     } else {
       _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }

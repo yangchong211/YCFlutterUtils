@@ -1,6 +1,6 @@
 
 
-import 'package:yc_flutter_plugin/utils/date_util.dart';
+import 'package:yc_flutter_plugin/date/date_utils.dart';
 
 /// (xx)Configurable output.
 /// (xx)为可配置输出.
@@ -238,11 +238,11 @@ class TimelineUtil {
 
     String timeline;
     if (_info.customYesterday().isNotEmpty &&
-        DateUtil.isYesterdayByMs(ms, _locTimeMs)) {
+        DateUtils.isYesterdayByMs(ms, _locTimeMs)) {
       return _getYesterday(ms, _info, _dayFormat);
     }
 
-    if (!DateUtil.yearIsEqualByMs(ms, _locTimeMs)) {
+    if (!DateUtils.yearIsEqualByMs(ms, _locTimeMs)) {
       timeline = _getYear(ms, _dayFormat);
       if (timeline.isNotEmpty) return timeline;
     }
@@ -294,23 +294,23 @@ class TimelineUtil {
     int _locTimeMs = locMs ?? DateTime.now().millisecondsSinceEpoch;
     int elapsed = _locTimeMs - ms;
     if (elapsed < 0) {
-      return DateUtil.formatDateMs(ms, format: formatToday);
+      return DateUtils.formatDateMs(ms, format: formatToday);
     }
 
-    if (DateUtil.isToday(ms, locMs: _locTimeMs)) {
-      return DateUtil.formatDateMs(ms, format: formatToday);
+    if (DateUtils.isToday(ms, locMs: _locTimeMs)) {
+      return DateUtils.formatDateMs(ms, format: formatToday);
     }
 
-    if (DateUtil.isYesterdayByMs(ms, _locTimeMs)) {
+    if (DateUtils.isYesterdayByMs(ms, _locTimeMs)) {
       return languageCode == 'zh' ? '昨天' : 'Yesterday';
     }
 
-    if (DateUtil.isWeek(ms, locMs: _locTimeMs)) {
-      return DateUtil.getWeekdayByMs(ms,
+    if (DateUtils.isWeek(ms, locMs: _locTimeMs)) {
+      return DateUtils.getWeekdayByMs(ms,
           languageCode: languageCode, short: short);
     }
 
-    return DateUtil.formatDateMs(ms, format: format);
+    return DateUtils.formatDateMs(ms, format: format);
   }
 
   /// get Yesterday.
@@ -322,7 +322,7 @@ class TimelineUtil {
   ) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
-            ? (' ' + DateUtil.formatDateMs(ms, format: 'HH:mm'))
+            ? (' ' + DateUtils.formatDateMs(ms, format: 'HH:mm'))
             : '');
   }
 
@@ -333,7 +333,7 @@ class TimelineUtil {
     DayFormat dayFormat,
   ) {
     if (dayFormat != DayFormat.Simple) {
-      return DateUtil.formatDateMs(ms,
+      return DateUtils.formatDateMs(ms,
           format: (dayFormat == DayFormat.Common
               ? 'yyyy-MM-dd'
               : 'yyyy-MM-dd HH:mm'));
@@ -358,10 +358,10 @@ class TimelineUtil {
             : info.days(days.round()));
         break;
       case DayFormat.Common:
-        timeline = DateUtil.formatDateMs(ms, format: 'MM-dd');
+        timeline = DateUtils.formatDateMs(ms, format: 'MM-dd');
         break;
       case DayFormat.Full:
-        timeline = DateUtil.formatDateMs(ms, format: 'MM-dd HH:mm');
+        timeline = DateUtils.formatDateMs(ms, format: 'MM-dd HH:mm');
         break;
     }
     return timeline;

@@ -1,2 +1,6 @@
-# YCFlutterPlugin
-flutter基础库
+# YCFlutterUtils
+#### 目录介绍
+- 01.该库是做什么的
+- 02.该库具有的优势
+- 03.该库如何去使用
+- 04.常用功能的介绍
