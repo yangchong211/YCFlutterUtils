@@ -1,14 +1,9 @@
 import 'dart:developer';
 
-/**
- * @Author: Sky24n
- * @GitHub: https://github.com/Sky24n
- * @Description: Log Util.
- * @Date: 2018/9/29
- */
 
-/// Log Util.
+/// 这个使用flutter日志打印
 class LogUtil {
+
   static const String _defTag = 'common_utils';
   static bool _debugMode = false; //是否是debug模式,true: log v 不输出.
   static int _maxLen = 128;
@@ -47,8 +42,7 @@ class LogUtil {
       print('$tag$stag $da');
       return;
     }
-    print(
-        '$tag$stag — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —');
+    print('$tag$stag — — — — — — — — — — st — — — — — — — — — — — — —');
     while (da.isNotEmpty) {
       if (da.length > _maxLen) {
         print('$tag$stag| ${da.substring(0, _maxLen)}');
@@ -58,7 +52,6 @@ class LogUtil {
         da = '';
       }
     }
-    print(
-        '$tag$stag — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —');
+    print('$tag$stag — — — — — — — — — — ed — — — — — — — — — ---— —');
   }
 }
