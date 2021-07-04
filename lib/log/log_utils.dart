@@ -2,10 +2,11 @@ import 'dart:developer';
 
 
 /// 这个使用flutter日志打印
-class LogUtil {
+class LogUtils {
 
   static const String _defTag = 'common_utils';
-  static bool _debugMode = false; //是否是debug模式,true: log v 不输出.
+  //是否是debug模式,true: log v 不输出.
+  static bool _debugMode = false;
   static int _maxLen = 128;
   static String _tagValue = _defTag;
 
