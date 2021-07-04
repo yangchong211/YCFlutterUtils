@@ -1,5 +1,5 @@
 
-import 'package:yc_flutter_plugin/utils/num_util.dart';
+import 'package:yc_flutter_plugin/num/num_utils.dart';
 
 enum MoneyUnit {
   NORMAL, // 6.00
@@ -30,7 +30,7 @@ class MoneyUtil {
   static String changeF2Y(int amount,
       {MoneyFormat format = MoneyFormat.NORMAL}) {
     String moneyTxt;
-    double yuan = NumUtil.divide(amount, 100);
+    double yuan = NumUtils.divide(amount, 100);
     switch (format) {
       case MoneyFormat.NORMAL:
         moneyTxt = yuan.toStringAsFixed(2);
@@ -85,7 +85,7 @@ class MoneyUtil {
   /// yuan to fen.
   /// 元 转 分，
   static int changeY2F(Object yuan) {
-    return NumUtil.multiplyDecStr(yuan.toString(), '100').toInt();
+    return NumUtils.multiplyDecStr(yuan.toString(), '100').toInt();
   }
 
   /// with unit.

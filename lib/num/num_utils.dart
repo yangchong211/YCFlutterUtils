@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 
 
 /// Num Util.
-class NumUtil {
+class NumUtils {
   /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
   static num getNumByValueStr(String valueStr, {int fractionDigits}) {
     double value = double.tryParse(valueStr);
