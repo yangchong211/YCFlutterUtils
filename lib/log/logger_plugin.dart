@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:yc_flutter_plugin/base/base_constants.dart';
+import 'package:yc_flutter_plugin/log/log_utils.dart';
 
 /// 这个使用原生NA的日志打印
 class LoggerPlugin {
@@ -34,7 +35,7 @@ class LoggerPlugin {
         "param": param,
       });
     } else {
-      print("$_tag $param");
+      LogUtils.d("$_tag $param");
     }
   }
 }
