@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yc_flutter_plugin/log/logger_plugin.dart';
 import 'package:yc_flutter_plugin_example/logger_test.dart';
 import 'package:yc_flutter_plugin_example/toast_test.dart';
+import 'package:yc_flutter_plugin_example/utils/get_it_page.dart';
 import 'package:yc_flutter_plugin_example/widget/custom_raised_button.dart';
 
 //StatelessWidget表示组件，一切都是widget，可以理解为组件
@@ -74,8 +75,9 @@ class HomePageState extends State<HomePage>{
         body: new Center(
           child: new ListView(
             children: <Widget>[
-              CustomRaisedButton(new LoggerTest(), "日志工具类"),
-              CustomRaisedButton(new ToastTest(), "吐司工具类"),
+              CustomRaisedButton(new LoggerTest(), "日志工具类测试"),
+              CustomRaisedButton(new ToastTest(), "吐司工具类测试"),
+              CustomRaisedButton(new GetItPage(), "serviceLocator测试"),
             ],
           ),
         ),
