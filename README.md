@@ -130,6 +130,19 @@
 
 #### 4.2 文件管理工具类
 - 文件管理工具类
+    ```
+    getTempPath                              : 获取设备上临时目录的路径，该目录没有备份，适合存储下载文件的缓存。
+    getAppDocPath                            : 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
+    getStoragePath                           : 应用程序可以访问顶层存储的目录的路径
+    createDirSync                            : 异步创建文件
+    createDir                                : 同步创建文件
+    createTempDir                            : 创建临时目录
+    createAppDocDir                          : 创建获取应用程序的目录
+    ```
+
+
+### 05.Sql数据库工具类
+- 待完善
 
 
 ### 06.Json转化工具类
@@ -205,7 +218,7 @@
 
 
 ### 14.图片处理工具类
-- 其他待完善，补充圆角，圆形切割图片等
+- 其他待完善，补充圆角，圆形切割图片，以及处理本地等图片的方法。
     ```
     base64ToImage                            : 将base64流转化为图片
     fileToBase64                             : 将图片file转化为base64
@@ -214,6 +227,8 @@
     showNetImageWh                           : 加载网络图片，并且指定宽高大小。使用默认预加载loading和错误视图
     showNetImageWhError                      : 加载网络图片，并且指定宽高大小。传入错误视图
     showNetImageWhPlaceError                 : 加载网络图片，并且指定宽高大小。传入预加载，错误视图
+    showNetImageWhClip                       : 加载网络图片，并且指定宽高大小，切割圆角
+    showNetImageCircle                       : 加载网络图片，切割圆形图片
     ```
 
 
@@ -301,6 +316,22 @@
 
 ### 23.Time时间工具类
 
+
+### 24.SPI帮助工具类
+- spi简单介绍
+    - Service Locator可以将接口（抽象基类）与具体实现分离和解耦合，同时允许通过接口从App中的任何位置访问具体实现。
+    ```
+    //第一步注册
+    GetIt serviceLocator = GetIt.instance;
+    getIt.registerSingleton<BusinessService>(new BusinessServiceImpl());
+    
+    //第二步使用
+    BusinessService businessService = serviceLocator<BusinessService>();
+    businessService.noneBusinessPattern();
+    
+    //第三步解绑
+    serviceLocator.resetLazySingleton<BusinessService>();
+    ```
 
 
 ### 25.计时器辅助工具类

@@ -145,6 +145,22 @@
 
 
 #### 4.2 文件管理工具类
+- Directory createDir(String path)
+    - 同步创建文件
+- Future<Directory> createDirSync(String path)
+    - 异步创建文件
+- Future<String> getTempPath({String fileName, String dirName,}) 
+    - 获取设备上临时目录的路径，该目录没有备份，适合存储下载文件的缓存。
+- Future<String> getAppDocPath({String fileName, String dirName,}) 
+    - 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
+- Future<String> getStoragePath({String fileName, String dirName,})
+    - 应用程序可以访问顶层存储的目录的路径
+- Future<Directory> createTempDir({String dirName})
+    - 创建临时目录
+- Future<Directory> createAppDocDir({String dirName}) 
+    - 创建获取应用程序的目录
+- Future<Directory> createStorageDir({String dirName}) 
+   - 创建应用程序可以访问顶层存储的目录的路径
 
 
 
@@ -244,6 +260,7 @@
 
 
 ### 14.图片处理工具类
+- 其他待完善，补充圆角，圆形切割图片，以及处理本地等图片的方法。
 - MemoryImage base64ToImage(String base64String)
     - 将base64流转化为图片
 - String fileToBase64(File imgFile)
@@ -258,7 +275,10 @@
     - 加载网络图片，并且指定宽高大小。传入错误视图
 - CachedNetworkImage showNetImageWhPlaceError(String url,double width, double height ,PlaceholderWidgetBuilder place,LoadingErrorWidgetBuilder error)
     - 加载网络图片，并且指定宽高大小。传入预加载，错误视图
-- 其他待完善，补充圆角，圆形切割图片等
+- CachedNetworkImage showNetImageWhClip(String url,double width, double height , double circular)
+    - 加载网络图片，并且指定宽高大小。切割圆角
+- CachedNetworkImage showNetImageCircle(String url, double radius)
+    - 加载网络图片，切割圆形图片。
 
 
 ### 16.常用正则工具类
@@ -356,6 +376,23 @@
 
 
 ### 23.Time时间工具类
+
+
+### 24.SPI帮助工具类
+- spi简单介绍
+    - Service Locator可以将接口（抽象基类）与具体实现分离和解耦合，同时允许通过接口从App中的任何位置访问具体实现。
+    ```
+    //第一步注册
+    GetIt serviceLocator = GetIt.instance;
+    getIt.registerSingleton<BusinessService>(new BusinessServiceImpl());
+    
+    //第二步使用
+    BusinessService businessService = serviceLocator<BusinessService>();
+    businessService.noneBusinessPattern();
+    
+    //第三步解绑
+    serviceLocator.resetLazySingleton<BusinessService>();
+    ```
 
 
 
