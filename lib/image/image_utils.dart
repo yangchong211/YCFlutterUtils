@@ -78,6 +78,84 @@ class ImageUtils {
   }
 
 
+  ///加载网络图片，并且指定宽高大小。切割圆角
+  static CachedNetworkImage showNetImageWhClip(String url,
+      double width, double height , double circular) {
+    return CachedNetworkImage(
+      width: width,
+      height: height,
+      imageUrl: url ?? '',
+      imageBuilder: (context, imageProvider) => Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(circular),
+          image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.cover,
+              colorFilter:
+              ColorFilter.mode(Colors.transparent, BlendMode.colorBurn)),
+        ),
+      ),
+      placeholder: (context, url) => Center(
+        child: Container(
+          height: 40,
+          width: 40,
+          margin: EdgeInsets.all(5),
+          child: CircularProgressIndicator(
+            strokeWidth: 2.0,
+            valueColor: AlwaysStoppedAnimation(Colors.blue),
+          ),
+        ),
+      ),
+      errorWidget: (context, url, error) => Container(
+        child: Icon(
+          Icons.terrain,
+          size: 64,
+        ),
+        alignment: Alignment.center,
+        color: Colors.black12,
+      ),
+    );
+  }
+
+
+  ///加载网络图片，切割圆形图片。
+  static CachedNetworkImage showNetImageCircle(String url, double radius) {
+    return CachedNetworkImage(
+      width: radius * 2,
+      height: radius * 2,
+      imageUrl: url ?? '',
+      imageBuilder: (context, imageProvider) => Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.cover,
+              colorFilter:
+              ColorFilter.mode(Colors.transparent, BlendMode.colorBurn)),
+        ),
+      ),
+      placeholder: (context, url) => Center(
+        child: Container(
+          height: 40,
+          width: 40,
+          margin: EdgeInsets.all(5),
+          child: CircularProgressIndicator(
+            strokeWidth: 2.0,
+            valueColor: AlwaysStoppedAnimation(Colors.blue),
+          ),
+        ),
+      ),
+      errorWidget: (context, url, error) => Container(
+        child: Icon(
+          Icons.terrain,
+          size: 64,
+        ),
+        alignment: Alignment.center,
+        color: Colors.black12,
+      ),
+    );
+  }
+
   ///加载网络图片，并且指定宽高大小。传入错误视图
   static CachedNetworkImage showNetImageWhError(String url,
       double width, double height , LoadingErrorWidgetBuilder error) {

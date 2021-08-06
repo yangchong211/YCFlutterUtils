@@ -19,6 +19,7 @@ import 'package:yc_flutter_utils_example/utils/num_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/object_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/regex_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/screen_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/storage_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/text_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/timer_utils_page.dart';
 import 'package:yc_flutter_utils_example/widget/custom_raised_button.dart';
@@ -158,6 +159,7 @@ class HomePageState extends State<HomePage>{
               CustomRaisedButton(new ImagePage(), "ImageUtils 图片工具类"),
               CustomRaisedButton(new TimerPage(), "TimerUtils 计时器工具类"),
               CustomRaisedButton(new RegexPage(), "RegexUtils 正则校验工具类"),
+              CustomRaisedButton(new StoragePage(), "StorageUtils 文件管理工具类"),
             ],
           ),
         ),

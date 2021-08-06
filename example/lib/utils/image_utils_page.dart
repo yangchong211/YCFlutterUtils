@@ -46,6 +46,8 @@ class _PageState extends State<ImagePage> {
         children: <Widget>[
           ImageUtils.showNetImageWh("https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/586766ce5091479d9a10215141c51d13~tplv-k3u1fbpfcp-zoom-in-crop-mark:652:0:0:0.awebp",100,100),
           ImageUtils.showNetImageWh("https://img-blog.csdnimg.cn/20201013094115174.png",200,200),
+          ImageUtils.showNetImageWhClip("https://img-blog.csdnimg.cn/20201013094115174.png",200,200,30),
+          ImageUtils.showNetImageCircle("https://img-blog.csdnimg.cn/20201013094115174.png",100),
         ],
       ),
     );

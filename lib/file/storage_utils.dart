@@ -15,6 +15,7 @@ class StorageUtils {
   /// 在iOS上，它使用“NSCachesDirectory”API。
   /// 在Android上，它在上下文中使用“getCacheDir”API。
   static Future<Directory> _initTempDir() {
+    //获取一个临时目录(缓存)，系统可以随时清除。
     return getTemporaryDirectory();
   }
 
@@ -24,14 +25,16 @@ class StorageUtils {
   /// 在iOS上，它使用“NSApplicationSupportDirectory”API。如果此目录不存在，则自动创建。
   /// 在Android上，此函数抛出一个[UnsupportedError]。
   static Future<Directory> _initSupportDir() {
+    //应用程序支持文件的目录的路径
     return getApplicationSupportDirectory();
   }
 
   /// getApplicationDocumentsDirectory
-  /// 指向应用程序可以放置用户生成的数据或应用程序无法重新创建的数据的目录的路径。
+  /// 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
   /// 在iOS上，它使用“NSDocumentDirectory”API。如果数据不是用户生成的，请考虑使用[GetApplicationSupportDirectory]。
   /// 在Android上，这在上下文中使用了“getDataDirectory”API。如果数据对用户可见，请考虑改用getExternalStorageDirectory。
   static Future<Directory> _initAppDocDir() async {
+    //获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
     return getApplicationDocumentsDirectory();
   }
 
@@ -40,11 +43,12 @@ class StorageUtils {
   /// 在iOS上，这个函数抛出一个[UnsupportedError]，因为它不可能访问应用程序的沙箱之外。
   /// 在Android上，它使用“getExternalStorageDirectory”API。
   static Future<Directory> _initStorageDir() async {
+    //应用程序可以访问顶层存储的目录的路径。
     return getExternalStorageDirectory();
   }
 
-  /// 同步创建文件夹
-  static Directory createDirSync(String path) {
+  /// 同步创建文件
+  static Directory createDir(String path) {
     if (ObjectUtils.isEmpty(path)) {
       return null;
     }
@@ -55,8 +59,8 @@ class StorageUtils {
     return dir;
   }
 
-  /// 异步创建文件夹
-  static Future<Directory> createDir(String path) async {
+  /// 异步创建文件
+  static Future<Directory> createDirSync(String path) async {
     if (ObjectUtils.isEmpty(path)) {
       return null;
     }
@@ -68,15 +72,11 @@ class StorageUtils {
     return dir;
   }
 
+  /// 获取设备上临时目录的路径，该目录没有备份，适合存储下载文件的缓存。
   /// fileName 文件名
   /// dirName 文件夹名
   /// String path = StorageUtil.getTempPath(fileName: 'demo.png', dirName: 'image');
-  /// Android: /data/user/0/com.thl.flustars_example/cache/image/demo.png
-  /// iOS: /var/mobile/Containers/Data/Application/xxx/Library/Caches/image/demo.png;
-  static Future<String> getTempPath({
-    String fileName,
-    String dirName,
-  }) async {
+  static Future<String> getTempPath({String fileName, String dirName,}) async {
     Directory _tempDir = await _initTempDir();
     if (_tempDir == null) {
       return null;
@@ -90,15 +90,11 @@ class StorageUtils {
     return sb.toString();
   }
 
+  /// 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
   /// fileName 文件名
   /// dirName 文件夹名
   /// String path = StorageUtil.getAppDocPath(fileName: 'demo.mp4', dirName: 'video');
-  /// Android: /data/user/0/com.thl.flustars_example/app_flutter/video/demo.mp4
-  /// iOS: /var/mobile/Containers/Data/Application/xxx/Documents/video/demo.mp4;
-  static Future<String> getAppDocPath({
-    String fileName,
-    String dirName,
-  }) async {
+  static Future<String> getAppDocPath({String fileName, String dirName,}) async {
     Directory _appDocDir = await _initAppDocDir();
     if (_appDocDir == null) {
       return null;
@@ -112,16 +108,10 @@ class StorageUtils {
     return sb.toString();
   }
 
+  ///
   /// fileName 文件名
   /// dirName 文件夹名
-  /// category 分类，例如：video，image等等
-  /// String path = StorageUtil.getStoragePath(fileName: 'flutterwanandroid.apk', dirName: 'apk');
-  /// Android: /storage/emulated/0/com.thl.flutterwanandroid/apk/flutterwanandroid.apk
-  /// iOS: 不存在;
-  static Future<String> getStoragePath({
-    String fileName,
-    String dirName,
-  }) async {
+  static Future<String> getStoragePath({String fileName, String dirName,}) async {
     Directory _storageDir = await _initStorageDir();
     if (_storageDir == null) {
       return null;
@@ -137,11 +127,9 @@ class StorageUtils {
     return sb.toString();
   }
 
-  ///创建临时目录
+  /// 创建临时目录
   /// dirName 文件夹名
   /// String path = StorageUtil.createTempDir( dirName: 'image');
-  /// Android: /data/user/0/com.thl.flustars_example/cache/image
-  /// iOS: /var/mobile/Containers/Data/Application/xxx/Library/Caches/image
   static Future<Directory> createTempDir({String dirName}) async {
     Directory _tempDir = await _initTempDir();
     if (_tempDir == null) {
@@ -154,11 +142,10 @@ class StorageUtils {
     return createDir(sb.toString());
   }
 
+  /// 创建获取应用程序的目录
   /// fileName 文件名
   /// dirName 文件夹名
   /// String path = StorageUtil.getAppDocPath(fileName: 'demo.mp4', dirName: 'video');
-  /// Android: /data/user/0/com.thl.flustars_example/app_flutter/video
-  /// iOS: /var/mobile/Containers/Data/Application/xxx/Documents/video
   static Future<Directory> createAppDocDir({String dirName}) async {
     Directory _appDocDir = await _initAppDocDir();
     if (_appDocDir == null) {
@@ -174,8 +161,6 @@ class StorageUtils {
   /// dirName 文件夹名
   /// category 分类，例如：video，image等等
   /// String path = StorageUtil.getStoragePath(fileName: 'yc.apk', dirName: 'apk');
-  /// Android: /storage/emulated/0/com.thl.yc/apk
-  /// iOS: 不存在;
   static Future<Directory> createStorageDir({String dirName}) async {
     Directory _storageDir = await _initStorageDir();
     if (_storageDir == null) {

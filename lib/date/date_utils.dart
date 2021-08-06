@@ -246,13 +246,10 @@ class DateUtils {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
   }
 
-  ///添加新的
-
   ///判断a和b两个时间是否是同一天
   static bool isSameDay(DateTime a, DateTime b) {
     return a.year == b.year && a.month == b.month && a.day == b.day;
   }
-
 
 }
 

@@ -113,7 +113,7 @@ class GetItLocator{
   }
 
   BusinessService getService(){
-    var businessService = serviceLocator<BusinessService>();
+    BusinessService businessService = serviceLocator<BusinessService>();
     return businessService;
   }
 
