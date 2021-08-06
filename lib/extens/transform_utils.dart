@@ -4,6 +4,7 @@ import 'package:yc_flutter_utils/extens/validator_utils.dart';
 import 'package:yc_flutter_utils/num/num_utils.dart';
 import 'package:yc_flutter_utils/object/object_utils.dart';
 
+/// 转化工具类
 class TransformUtils {
 
   /// Transform int value to binary
@@ -24,7 +25,6 @@ class TransformUtils {
   /// Capitalize each word inside string
   /// 字符串内的每个单词都要大写
   /// Example: your name => Your Name, your name => Your name
-  ///
   /// If First Only is `true`, the only letter get uppercase is the first letter
   static String capitalize(String s, {bool firstOnly = false}) {
     if (ObjectUtils.isNullOrBlank(s)) return null;

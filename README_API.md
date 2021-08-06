@@ -25,7 +25,7 @@
 - 23.Time时间工具类
 - 24.SPI帮助工具类
 - 25.计时器辅助工具类
-- 26.集合拓展工具类
+- 26.常见拓展工具类
 - 27.内存缓存工具类
 - 28.清除操作工具类
 - 29.编解码相关工具类
@@ -456,7 +456,73 @@
 
 
 
-### 26.集合拓展工具类
+### 26.常见拓展工具类
+#### 26.1 int拓展类：ExtensionInt
+- ExtensionInt拓展类
+    ```
+    isPalindrome                             : 检查int是否为回文
+    isOneAKind                               : 检查所有数据是否具有相同的值
+    toBinary                                 : 转换int值为二进制
+    toBinaryInt                              : 转换int值为二进制int
+    fromBinary                               : 转换int值为二进制字符串
+    ```
+
+
+#### 26.2 List拓展类：ExtensionList
+- ExtensionList拓展类
+    ```
+    toJsonString                             : 将list转化为json字符串
+    getJsonPretty                            : 将list转化为json字符串，换行
+    valueTotal                               : 获取num列表的总值(int/double)
+    isNull                                   : 判断对象是否为null
+    isNullOrBlank                            : 检查数据是否为空或空(空或只包含空格)
+    ```
+
+
+#### 26.3 Map拓展类：ExtensionMap
+- ExtensionMap拓展类【set拓展类同理】
+    ```
+    toJsonString                             : 将map转化为json字符串
+    getJsonPretty                            : 将map转化为json字符串换行
+    isNull                                   : 判断对象是否为null
+    isNullOrBlank                            : 检查数据是否为空或空(空或只包含空格)
+    ```
+
+
+#### 26.4 String拓展类：ExtensionString
+- ExtensionString拓展类
+    ```
+    isNull                                   : 判断对象是否为null
+    isNullOrBlank                            : 检查数据是否为空或空(空或只包含空格)
+    isNumericOnly                            : 检查字符串是否只包含数字
+    isAlphabetOnly                           : 检查字符串是否只包含字母。(没有空格)
+    isBool                                   : 检查字符串是否为布尔值
+    isVector                                 : 检查string是否为vector文件
+    isImage                                  : 检查字符串是否为图像文件
+    isAudio                                  : 检查字符串是否为音频文件
+    isVideo                                  : 检查字符串是否为视频文件
+    isTxt                                    : 检查字符串是否为txt文本文件
+    isDocument                               : 检查字符串是否为doc文件
+    isExcel                                  : 检查字符串是否为excel文件
+    isPPT                                    : 检查字符串是否为ppt文件
+    isAPK                                    : 检查字符串是否为apk文件
+    isPDF                                    : 检查字符串是否为pdf文件
+    isHTML                                   : 检查字符串是否为html文件
+    isURL                                    : 检查字符串是否为url文件
+    isEmail                                  : 检查字符串是否为email文件
+    isDateTime                               : 检查字符串是否为时间
+    isMD5                                    : 检查字符串是否为md5
+    isSHA1                                   : 检查字符串是否为sha1
+    isSHA256                                 : 检查字符串是否为sha256
+    isIPv4                                   : 检查字符串是否为ipv4
+    isIPv6                                   : 检查字符串是否为ipv6
+    isPalindrome                             : 检查字符串是否为回文
+    isCaseInsensitiveContains                : 检查a是否包含b(将大小写字母视为相同或解释)。
+    isCaseInsensitiveContainsAny             : 检查a中是否包含b或b中是否包含a(将大小写字母视为相同)。
+    isCamelCase                              : 检查字符串值是否驼峰大小写
+    isCapitalize                             : 检查字符串值是否大写
+    ```
+
 
 
 ### 33.转化相关工具类

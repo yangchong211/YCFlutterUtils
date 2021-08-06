@@ -3,7 +3,6 @@
 import 'package:yc_flutter_utils/extens/validator_utils.dart';
 import 'package:yc_flutter_utils/object/object_utils.dart';
 
-/// Num extension also works on int and double data type
 extension ExtensionNum on num {
 
   /// Checks if data is null.

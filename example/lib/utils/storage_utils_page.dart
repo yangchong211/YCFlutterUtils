@@ -118,7 +118,7 @@ class _PageState extends State<StoragePage> {
   void click2() async{
     String appDocDir = await StorageUtils.getTempPath();
     String filePath = appDocDir + '/doubi.json';
-    Directory createDir = await StorageUtils.createDir(filePath);
+    var createDir = StorageUtils.createDir(filePath);
     setState(() {
       string2 = createDir.path;
     });

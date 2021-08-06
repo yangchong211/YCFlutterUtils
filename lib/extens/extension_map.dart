@@ -7,22 +7,27 @@ import 'package:yc_flutter_utils/object/object_utils.dart';
 
 extension ExtensionMap on Map {
 
-  // Transform map to json
+  /// Transform map to json
+  /// 将map转化为json字符串
   String toJsonString() {
     return jsonEncode(this);
   }
 
+  /// 将map转化为json字符串换行
   String getJsonPretty() {
     return JsonEncoder.withIndent('\t').convert(this);
   }
 
   /// Checks if data is null.
+  /// 检查数据是否为空或空
   bool isNull() => ObjectUtils.isNull(this);
 
   /// Checks if data is null or Blank (Empty or only contains whitespace).
+  /// 检查数据是否为空或空
   bool isNullOrBlank() => ObjectUtils.isNullOrBlank(this);
 
   /// Checks if length of map is LOWER than maxLength.
+  /// 检查数据长度是否小于maxLength
   bool isLengthLowerThan(int maxLength) =>
       ValidatorUtils.isLengthLowerThan(this, maxLength);
 
