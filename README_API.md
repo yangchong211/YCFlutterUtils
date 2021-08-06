@@ -17,7 +17,7 @@
 - 15.网络处理工具类
 - 16.常用正则工具类
 - 17.Object常用工具类
-- 18.进程处理工具类
+- 18.验证相关工具类
 - 19.路由管理工具类
 - 20.Bus事件工具类
 - 21.Text文本工具类
@@ -32,6 +32,8 @@
 - 30.反射相关工具类
 - 31.资源相关工具类
 - 32.Snackbar工具类
+- 33.转化相关工具类
+- 40.其他相关工具类
 
 
 ### 01.事件通知bus工具类
@@ -331,6 +333,40 @@
     - 获取object的长度
 
 
+
+### 18.验证相关工具类
+- 验证相关工具类
+    ```
+    isNumericOnly                            : 检查字符串是否只包含数字
+    isAlphabetOnly                           : 检查字符串是否只包含字母。(没有空格)
+    isBool                                   : 检查字符串是否为布尔值
+    isVector                                 : 检查string是否为vector文件
+    isImage                                  : 检查字符串是否为图像文件
+    isAudio                                  : 检查字符串是否为音频文件
+    isVideo                                  : 检查字符串是否为视频文件
+    isTxt                                    : 检查字符串是否为txt文本文件
+    isDocument                               : 检查字符串是否为doc文件
+    isExcel                                  : 检查字符串是否为excel文件
+    isPPT                                    : 检查字符串是否为ppt文件
+    isAPK                                    : 检查字符串是否为apk文件
+    isPDF                                    : 检查字符串是否为pdf文件
+    isHTML                                   : 检查字符串是否为html文件
+    isURL                                    : 检查字符串是否为url文件
+    isEmail                                  : 检查字符串是否为email文件
+    isDateTime                               : 检查字符串是否为时间
+    isMD5                                    : 检查字符串是否为md5
+    isSHA1                                   : 检查字符串是否为sha1
+    isSHA256                                 : 检查字符串是否为sha256
+    isIPv4                                   : 检查字符串是否为ipv4
+    isIPv6                                   : 检查字符串是否为ipv6
+    isPalindrome                             : 检查字符串是否为回文
+    isCaseInsensitiveContains                : 检查a是否包含b(将大小写字母视为相同或解释)。
+    isCaseInsensitiveContainsAny             : 检查a中是否包含b或b中是否包含a(将大小写字母视为相同)。
+    isCamelCase                              : 检查字符串值是否驼峰大小写
+    isCapitalize                             : 检查字符串值是否大写
+    ```
+
+
 ### 21.Text文本工具类
 - bool isEmpty(String text) 
     - 判断文本内容是否为空
@@ -422,6 +458,25 @@
 
 ### 26.集合拓展工具类
 
+
+### 33.转化相关工具类
+- String toBinary(int i)
+    - 转换int值为二进制
+- int toBinaryInt(int i)
+    - 转换int值为二进制
+- int fromBinary(String binaryStr)
+    - 转换二进制为int值
+- String capitalize(String s, {bool firstOnly = false})
+    - 字符串内的每个单词都要大写
+- String capitalizeFirst(String s) 
+    - 字符串的首字母大写，其他字母小写
+- String removeAllWhitespace(String s)
+    - 删除字符串内的所有空格
+- String numericOnly(String s, {bool firstWordOnly = false})
+    - 提取字符串的数值
+
+
+### 40.其他相关工具类
 
 
 
