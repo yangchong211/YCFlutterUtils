@@ -7,8 +7,9 @@ typedef void OnTimerTickCallback(int millisUntilFinished);
 /// 倒计时timer工具类
 class TimerUtils {
 
-  TimerUtils({this.mInterval = Duration.millisecondsPerSecond,
-        this.mTotalTime = 0
+  TimerUtils({
+    this.mInterval = Duration.millisecondsPerSecond,
+    this.mTotalTime = 0
   });
 
   /// Timer.
@@ -96,9 +97,14 @@ class TimerUtils {
   }
 
   /// timer is Active.
-  /// Timer是否启动.
+  /// 判断Timer是否启动.
   bool isActive() {
     return _isActive;
+  }
+
+  /// 暂停计时器
+  void pauseTimer(){
+
   }
 
   /// Cancels the timer.
@@ -110,6 +116,7 @@ class TimerUtils {
   }
 
   /// set timer callback.
+  /// 设置倒计时器的监听
   void setOnTimerTickCallback(OnTimerTickCallback callback) {
     _onTimerTickCallback = callback;
   }

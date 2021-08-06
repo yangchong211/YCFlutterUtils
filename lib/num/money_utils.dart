@@ -1,26 +1,15 @@
 
-import 'package:yc_flutter_plugin/num/num_utils.dart';
 
-enum MoneyUnit {
-  NORMAL, // 6.00
-  YUAN, // ¥6.00
-  YUAN_ZH, // 6.00元
-  DOLLAR, // $6.00
-}
-enum MoneyFormat {
-  NORMAL, //保留两位小数(6.00元)
-  END_INTEGER, //去掉末尾'0'(6.00元 -> 6元, 6.60元 -> 6.6元)
-  YUAN_INTEGER, //整元(6.00元 -> 6元)
-}
-/**
- * @Author: Sky24n
- * @GitHub: https://github.com/Sky24n
- * @Description: Money Util.
- * @Date: 2018/9/29
- */
+
+import 'package:yc_flutter_utils/num/money_format.dart';
+import 'package:yc_flutter_utils/num/money_unit.dart';
+import 'package:yc_flutter_utils/num/num_utils.dart';
+
+
 
 /// Money Util.
-class MoneyUtil {
+class MoneyUtils {
+
   static const String YUAN = '¥';
   static const String YUAN_ZH = '元';
   static const String DOLLAR = '\$';
@@ -30,7 +19,7 @@ class MoneyUtil {
   static String changeF2Y(int amount,
       {MoneyFormat format = MoneyFormat.NORMAL}) {
     String moneyTxt;
-    double yuan = NumUtils.divide(amount, 100);
+    double yuan = NumUtils.divideNum(amount, 100);
     switch (format) {
       case MoneyFormat.NORMAL:
         moneyTxt = yuan.toStringAsFixed(2);
@@ -85,7 +74,7 @@ class MoneyUtil {
   /// yuan to fen.
   /// 元 转 分，
   static int changeY2F(Object yuan) {
-    return NumUtils.multiplyDecStr(yuan.toString(), '100').toInt();
+    return NumUtils.multiplyDecString(yuan.toString(), '100').toInt();
   }
 
   /// with unit.

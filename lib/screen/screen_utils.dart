@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-class ScreenUtil {
+class ScreenUtils {
 
-  static ScreenUtil instance = new ScreenUtil();
+  static ScreenUtils instance = new ScreenUtils();
 
   //设计稿的设备尺寸修改
   double width;
@@ -21,13 +21,13 @@ class ScreenUtil {
 
   static double _textScaleFactor;
 
-  ScreenUtil({
+  ScreenUtils({
     this.width = 1080,
     this.height = 1920,
     this.allowFontScaling = false,
   });
 
-  static ScreenUtil getInstance() {
+  static ScreenUtils getInstance() {
     return instance;
   }
 
@@ -40,8 +40,11 @@ class ScreenUtil {
     _screenWidth = mediaQuery.size.width;
     //当前设备高度 dp
     _screenHeight = mediaQuery.size.height;
+    //状态栏高度 dp
     _statusBarHeight = mediaQuery.padding.top;
-    _bottomBarHeight = _mediaQueryData.padding.bottom;
+    //底部安全区距离 dp
+    _bottomBarHeight = mediaQuery.padding.bottom;
+    //每个逻辑像素的字体像素数
     _textScaleFactor = mediaQuery.textScaleFactor;
   }
 
@@ -62,7 +65,7 @@ class ScreenUtil {
   ///当前设备宽度 px = dp * 密度
   static double get screenWidth => _screenWidth * _pixelRatio;
 
-  ///当前设备高度 px
+  ///当前设备高度 px = dp * 密度
   static double get screenHeight => _screenHeight * _pixelRatio;
 
   ///状态栏高度 dp 刘海屏会更高

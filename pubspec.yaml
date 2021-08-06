@@ -1,12 +1,13 @@
-name: yc_flutter_plugin
-description: A new Flutter plugin.
+name: yc_flutter_utils
+description: A new Flutter project.
 version: 0.0.1
-author:
-homepage:
+author: yangchong<yangchong211@gmail.com>
+homepage: https://github.com/yangchong211
+
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=1.20.0 <2.0.0"
 
 dependencies:
   flutter:
@@ -17,6 +18,9 @@ dependencies:
   crypto: "2.1.5"
   # https://github.com/dart-lang/convert
   convert: "2.1.1"
+  http: '>=0.11.3+12'
+  path_provider: ^1.6.9
+  cached_network_image: ^2.0.0
 
 
 dev_dependencies:
@@ -27,7 +31,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.yc.yc_flutter_plugin
-        pluginClass: YcFlutterPlugin
+        package: com.utils.yc_flutter_utils
+        pluginClass: YcFlutterUtilsPlugin
       ios:
-        pluginClass: YcFlutterPlugin
+        pluginClass: YcFlutterUtilsPlugin

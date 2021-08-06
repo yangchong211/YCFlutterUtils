@@ -1,7 +1,7 @@
 
 typedef FactoryFunc<T> = T Function();
 
-
+/// ServiceLocator简单实现代码
 class GetItHelper {
 
   final _factories = new Map<Type, _ServiceFactory<dynamic>>();

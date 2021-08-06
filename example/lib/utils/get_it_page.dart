@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yc_flutter_plugin/locator/get_it.dart';
-import 'package:yc_flutter_plugin/locator/get_it_helper.dart';
-import 'package:yc_flutter_plugin/log/log_utils.dart';
+import 'package:yc_flutter_utils/locator/get_it.dart';
+import 'package:yc_flutter_utils/locator/get_it_helper.dart';
+import 'package:yc_flutter_utils/log/log_utils.dart';
 
 
 
@@ -66,6 +66,23 @@ class GetItState extends State<GetItPage>{
               color: const Color(0xffff0000),
               child: new Text('使用GetIt，获取接口的子类数据'),
             ),
+            RaisedButton(
+              onPressed: () {
+                // 注册地图资源服务
+                GetIt.I.registerLazySingleton<ResourceService>(() => ResourceManagerImpl());
+
+                // 注册后才能使用
+                ResourceService _resourceService = resourceService();
+                _resourceService.init();
+                var style = _resourceService.getStyle();
+                _resourceService.release();
+                setState(() {
+                  title = "---使用GetIt调用ResourceService--"+style;
+                });
+              },
+              color: const Color(0xffff0000),
+              child: new Text('使用GetIt调用ResourceService'),
+            ),
           ],
         ));
   }
@@ -115,4 +132,39 @@ class BusinessServiceImpl extends BusinessService {
     LogUtils.d("-----noneBusinessPattern");
     return "获取子类的数据";
   }
+}
+
+
+
+
+
+ResourceService Function() resourceService = () => GetIt.I.get<ResourceService>();
+abstract class ResourceService {
+
+  ///初始化数据
+  Future<void> init();
+  ///释放
+  void release();
+  ///获取样式
+  String getStyle();
+
+}
+
+class ResourceManagerImpl extends ResourceService{
+  @override
+  String getStyle() {
+    LogUtils.d("ResourceManagerImpl------getStyle");
+    return "getStyle";
+  }
+
+  @override
+  Future<void> init() {
+    LogUtils.d("ResourceManagerImpl------init");
+  }
+
+  @override
+  void release() {
+    LogUtils.e("ResourceManagerImpl------release");
+  }
+
 }

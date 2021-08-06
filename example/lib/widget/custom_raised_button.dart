@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yc_flutter_plugin_example/router/app_navigator.dart';
+import 'package:yc_flutter_utils/router/navigator_utils.dart';
 
 //定义自带路由跳转button
 // ignore: must_be_immutable

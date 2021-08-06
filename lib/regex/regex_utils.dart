@@ -1,91 +1,31 @@
 
+import 'package:yc_flutter_utils/regex/regex_constants.dart';
 
-/// Regex Util.
+/// 常见正则表达式工具类
 class RegexUtils {
-  /// Regex of simple mobile.
-  static final String regexMobileSimple = '^[1]\\d{10}\$';
-
-  /// Regex of exact mobile.
-  ///  <p>china mobile: 134(0-8), 135, 136, 137, 138, 139, 147, 150, 151, 152, 157, 158, 159, 165, 172, 178, 182, 183, 184, 187, 188, 195, 198</p>
-  ///  <p>china unicom: 130, 131, 132, 145, 155, 156, 166, 167, 171, 175, 176, 185, 186</p>
-  ///  <p>china telecom: 133, 153, 162, 173, 177, 180, 181, 189, 199, 191</p>
-  ///  <p>global star: 1349</p>
-  ///  <p>virtual operator: 170</p>
-  static final String regexMobileExact =
-      '^((13[0-9])|(14[57])|(15[0-35-9])|(16[2567])|(17[01235-8])|(18[0-9])|(19[1589]))\\d{8}\$';
-
-  /// Regex of telephone number.
-  static final String regexTel = '^0\\d{2,3}[- ]?\\d{7,8}';
-
-  /// Regex of id card number which length is 15.
-  static final String regexIdCard15 =
-      '^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}\$';
-
-  /// Regex of id card number which length is 18.
-  static final String regexIdCard18 =
-      '^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9Xx])\$';
-
-  /// Regex of email.
-  static final String regexEmail =
-      '^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\$';
-
-  /// Regex of url.
-  static final String regexUrl = '[a-zA-Z]+://[^\\s]*';
-
-  /// Regex of Chinese character.
-  static final String regexZh = '[\\u4e00-\\u9fa5]';
-
-  /// Regex of date which pattern is 'yyyy-MM-dd'.
-  static final String regexDate =
-      '^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)\$';
-
-  /// Regex of ip address.
-  static final String regexIp =
-      '((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)';
-
-  /// must contain letters and numbers, 6 ~ 18.
-  /// 必须包含字母和数字, 6~18.
-  static const String regexUsername =
-      '^(?![0-9]+\$)(?![a-zA-Z]+\$)[0-9A-Za-z]{6,18}\$';
-
-  /// must contain letters and numbers, can contain special characters 6 ~ 18.
-  /// 必须包含字母和数字,可包含特殊字符 6~18.
-  static const String regexUsername2 =
-      '^(?![0-9]+\$)(?![a-zA-Z]+\$)[0-9A-Za-z\\W]{6,18}\$';
-
-  /// must contain letters and numbers and special characters, 6 ~ 18.
-  /// 必须包含字母和数字和殊字符, 6~18.
-  static const String regexUsername3 =
-      '^(?![0-9]+\$)(?![a-zA-Z]+\$)(?![0-9a-zA-Z]+\$)(?![0-9\\W]+\$)(?![a-zA-Z\\W]+\$)[0-9A-Za-z\\W]{6,18}\$';
-
-  /// Regex of QQ number.
-  static final String regexQQ = '[1-9][0-9]{4,}';
-
-  /// Regex of postal code in China.
-  static final String regexChinaPostalCode = "[1-9]\\d{5}(?!\\d)";
-
-  /// Regex of Passport.
-  static final String regexPassport =
-      r'(^[EeKkGgDdSsPpHh]\d{8}$)|(^(([Ee][a-fA-F])|([DdSsPp][Ee])|([Kk][Jj])|([Mm][Aa])|(1[45]))\d{7}$)';
 
   static final Map<String, String> cityMap = Map();
 
-  ///Return whether input matches regex of simple mobile.
+  /// Return whether input matches regex of simple mobile.
+  /// 判断输入字符串是否符合手机号
   static bool isMobileSimple(String input) {
-    return matches(regexMobileSimple, input);
+    return matches(RegexConstants.REGEX_MOBILE_SIMPLE, input);
   }
 
-  ///Return whether input matches regex of exact mobile.
+  /// Return whether input matches regex of exact mobile.
+  /// 精确验证是否是手机号
   static bool isMobileExact(String input) {
-    return matches(regexMobileExact, input);
+    return matches(RegexConstants.REGEX_MOBILE_EXACT, input);
   }
 
   /// Return whether input matches regex of telephone number.
+  /// 判断返回输入是否匹配电话号码的正则表达式
   static bool isTel(String input) {
-    return matches(regexTel, input);
+    return matches(RegexConstants.REGEX_TEL, input);
   }
 
   /// Return whether input matches regex of id card number.
+  /// 返回输入是否匹配身份证号码的正则表达式。
   static bool isIDCard(String input) {
     if (input.length == 15) {
       return isIDCard15(input);
@@ -97,16 +37,19 @@ class RegexUtils {
   }
 
   /// Return whether input matches regex of id card number which length is 15.
+  /// 返回输入是否匹配长度为15的身份证号码的正则表达式。
   static bool isIDCard15(String input) {
-    return matches(regexIdCard15, input);
+    return matches(RegexConstants.REGEX_ID_CARD15, input);
   }
 
   /// Return whether input matches regex of id card number which length is 18.
+  /// 返回输入是否匹配长度为18的身份证号码的正则表达式。
   static bool isIDCard18(String input) {
-    return matches(regexIdCard18, input);
+    return matches(RegexConstants.REGEX_ID_CARD18, input);
   }
 
-  ///Return whether input matches regex of exact id card number which length is 18.
+  /// Return whether input matches regex of exact id card number which length is 18.
+  /// 返回输入是否匹配长度为18的id卡号的正则表达式。
   static bool isIDCard18Exact(String input) {
     if (isIDCard18(input)) {
       List<int> factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
@@ -147,49 +90,61 @@ class RegexUtils {
   }
 
   /// Return whether input matches regex of email.
+  /// 返回输入是否匹配电子邮件的正则表达式。
   static bool isEmail(String input) {
-    return matches(regexEmail, input);
+    return matches(RegexConstants.REGEX_EMAIL, input);
   }
 
   /// Return whether input matches regex of url.
+  /// 返回输入是否匹配url的正则表达式。
   static bool isURL(String input) {
-    return matches(regexUrl, input);
+    return matches(RegexConstants.REGEX_URL, input);
   }
 
   /// Return whether input matches regex of Chinese character.
+  /// 返回输入是否匹配汉字的正则表达式。
   static bool isZh(String input) {
-    return '〇' == input || matches(regexZh, input);
+    return '〇' == input || matches(RegexConstants.REGEX_ZH, input);
   }
 
   /// Return whether input matches regex of date which pattern is 'yyyy-MM-dd'.
+  /// 返回输入是否匹配样式为'yyyy-MM-dd'的日期的正则表达式。
   static bool isDate(String input) {
-    return matches(regexDate, input);
+    return matches(RegexConstants.REGEX_DATE, input);
   }
 
   /// Return whether input matches regex of ip address.
+  /// 返回输入是否匹配ip地址的正则表达式。
   static bool isIP(String input) {
-    return matches(regexIp, input);
+    return matches(RegexConstants.REGEX_IP, input);
   }
 
   /// Return whether input matches regex of username.
-  static bool isUserName(String input, {String regex = regexUsername}) {
+  /// 返回输入是否匹配用户名的正则表达式。
+  static bool isUserName(String input, {String regex = RegexConstants.REGEX_USERNAME}) {
     return matches(regex, input);
   }
 
   /// Return whether input matches regex of QQ.
+  /// 返回是否匹配QQ的正则表达式。
   static bool isQQ(String input) {
-    return matches(regexQQ, input);
+    return matches(RegexConstants.REGEX_QQ_NUM, input);
   }
 
-  ///Return whether input matches regex of Passport.
-  static bool isPassport(String input) {
-    return matches(regexPassport, input);
-  }
-
+  /// Return whether input matches the regex.
+  /// 返回输入是否匹配正则表达式。
   static bool matches(String regex, String input) {
-    if (input.isEmpty) return false;
+    if (input.isEmpty) {
+      return false;
+    }
     return RegExp(regex).hasMatch(input);
   }
+
+  /// 判断内容是否符合正则
+  static bool hasMatch(String s, Pattern p){
+    return (s == null) ? false : RegExp(p).hasMatch(s);
+  }
+
 }
 
 /// id card province dict.

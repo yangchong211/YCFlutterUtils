@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:convert/convert.dart';
@@ -7,9 +8,17 @@ import 'package:convert/convert.dart';
 /// 加密和解密工具类
 class EncryptUtils {
 
-  /// md5 加密
+  /// md5 加密字符串
   static String encodeMd5(String data) {
     var content = Utf8Encoder().convert(data);
+    var digest = md5.convert(content);
+    return hex.encode(digest.bytes);
+  }
+
+  /// md5 加密file
+  static String encodeMd5File(File file) {
+    var readAsStringSync = file.readAsStringSync();
+    var content = Utf8Encoder().convert(readAsStringSync);
     var digest = md5.convert(content);
     return hex.encode(digest.bytes);
   }
@@ -40,14 +49,14 @@ class EncryptUtils {
     return encode;
   }
 
-  /// Base64加密
+  /// Base64加密字符串
   static String encodeBase64(String data) {
     var content = utf8.encode(data);
     var digest = base64Encode(content);
     return digest;
   }
 
-  /// Base64解密
+  /// Base64解密字符串
   static String decodeBase64(String data) {
     List<int> bytes = base64Decode(data);
     String result = utf8.decode(bytes);

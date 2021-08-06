@@ -1,6 +1,6 @@
-# yc_flutter_plugin_example
+# yc_flutter_utils_example
 
-Demonstrates how to use the yc_flutter_plugin plugin.
+Demonstrates how to use the yc_flutter_utils plugin.
 
 ## Getting Started
 

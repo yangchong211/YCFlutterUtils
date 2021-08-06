@@ -1,7 +1,5 @@
 
-
-
-import 'package:yc_flutter_plugin/bus/event_bus.dart';
+import 'dart:async';
 
 typedef void EventCallback(arg);
 
@@ -40,3 +38,37 @@ class EventBusService {
     return _eBus;
   }
 }
+
+
+class EventBus {
+
+  StreamController _streamController;
+
+  StreamController get streamController => _streamController;
+
+  EventBus({bool sync = false})
+      : _streamController = StreamController.broadcast(sync: sync);
+
+  EventBus.customController(StreamController controller)
+      : _streamController = controller;
+
+  ///监听事件
+  Stream<T> on<T>() {
+    if (T == dynamic) {
+      return streamController.stream;
+    } else {
+      return streamController.stream.where((event) => event is T).cast<T>();
+    }
+  }
+
+  ///添加事件
+  void fire(event) {
+    streamController.add(event);
+  }
+
+  ///移除事件
+  void destroy() {
+    _streamController.close();
+  }
+}
+
