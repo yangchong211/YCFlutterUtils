@@ -1,7 +1,6 @@
 name: yc_flutter_utils
-description: A new Flutter project.
+description: flutter utils
 version: 0.0.1
-author: yangchong<yangchong211@gmail.com>
 homepage: https://github.com/yangchong211
 
 
@@ -13,12 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   # https://github.com/a14n/dart-decimal
-  decimal: "0.3.5"
+  decimal: ^0.3.5
+  async: ^2.4.2
   # https://github.com/dart-lang/crypto
-  crypto: "2.1.5"
+  crypto: ^2.1.5
   # https://github.com/dart-lang/convert
-  convert: "2.1.1"
-  http: '>=0.11.3+12'
+  convert: ^2.1.1
+  http: ^0.11.3+12
   path_provider: ^1.6.9
   cached_network_image: ^2.0.0
 

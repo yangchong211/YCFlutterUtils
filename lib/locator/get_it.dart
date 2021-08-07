@@ -3,7 +3,7 @@ library get_it;
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'get_it_impl.dart';
 
