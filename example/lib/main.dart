@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yc_flutter_utils/i18/localizations.dart';
 import 'package:yc_flutter_utils/i18/template_time.dart';
+import 'package:yc_flutter_utils/sp/sp_utils.dart';
 import 'package:yc_flutter_utils/utils/flutter_init_utils.dart';
 import 'package:yc_flutter_utils/except/handle_exception.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,6 +21,7 @@ import 'package:yc_flutter_utils_example/utils/num_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/object_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/regex_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/screen_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/sp_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/storage_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/text_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/timer_utils_page.dart';
@@ -53,6 +55,11 @@ void main() {
   //countryCode就是：CN
   //Locale myLocale = Localizations.localeOf(context);
   LocalizationTime.locale = new Locale("zh","CN");
+
+  Future(() async {
+    await SpUtils.init();
+  });
+
 
   //await FlutterInitUtils.fetchInitUtils();
   //FlutterInitUtils.fetchInitUtils();
@@ -162,6 +169,7 @@ class HomePageState extends State<HomePage>{
               CustomRaisedButton(new RegexPage(), "RegexUtils 正则校验工具类"),
               CustomRaisedButton(new StoragePage(), "StorageUtils 文件管理工具类"),
               CustomRaisedButton(new ExtensionPage(), "extension_xx 拓展工具类"),
+              CustomRaisedButton(new SpPage(), "SpUtils sp存储工具类"),
             ],
           ),
         ),

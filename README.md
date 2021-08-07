@@ -99,6 +99,12 @@
 ### 03.日期转化工具类
 - 日期转化工具类
     ```
+    getNowDateTime                           : 获取当前日期返回DateTime
+    getYesterday                             : 获取昨天日期返回DateTime
+    getNowUtcDateTime                        : 获取当前日期返回DateTime(utc)
+    getNowDateTimeFormat                     : 获取当前日期，返回指定格式
+    getUtcDateTimeFormat                     : 获取当前日期，返回指定格式
+    isYesterday                              : 根据时间判断是否是昨天
     getNowDateMs                             : 将#获取当前毫秒值，返回int
     getNowDateString                         : 获取现在日期字符串，默认是：yyyy-MM-dd HH:mm:ss，返回字符串
     formatDate                               : 格式化时间，第一个字段是dateTime，第二个可选项表示格式

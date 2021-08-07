@@ -100,6 +100,12 @@
 
 
 ### 03.日期转化工具类
+- DateTime getNowDateTime()
+    - 获取当前日期返回DateTime
+- DateTime getYesterday()
+    - 获取昨天日期返回DateTime
+- DateTime getNowUtcDateTime()
+    - 获取当前日期返回DateTime(utc)
 - int getNowDateMs()                    
     - 获取当前毫秒值，返回int
 - String getNowDateString()             

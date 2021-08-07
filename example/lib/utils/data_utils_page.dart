@@ -33,6 +33,9 @@ class _DatePageState extends State<DatePage> {
         children: <Widget>[
           new Text("获取当前毫秒值：" + DateUtils.getNowDateMs().toString()),
           new Text("获取现在日期字符串：" + DateUtils.getNowDateString().toString()),
+          new Text("获取当前日期返回DateTime(utc)：" + DateUtils.getNowUtcDateTime().toString()),
+          new Text("获取当前日期，返回指定格式：" + DateUtils.getNowDateTimeFormat(DateFormats.PARAM_FULL).toString()),
+          new Text("获取当前日期，返回指定格式：" + DateUtils.getUtcDateTimeFormat(DateFormats.PARAM_Y_M_D_H_M).toString()),
           new Text("格式化日期 DateTime：" + DateUtils.formatDate(dateTime)),
           new Text("格式化日期 DateTime：" + DateUtils.formatDate(dateTime,format: DateFormats.Y_M_D_H_M)),
           new Text("格式化日期字符串：" + DateUtils.formatDateString('2021-07-18 16:03:10', format: "yyyy/M/d HH:mm:ss")),

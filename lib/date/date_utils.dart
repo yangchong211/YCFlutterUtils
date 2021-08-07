@@ -31,6 +31,12 @@ class DateUtils {
     return dateTime.millisecondsSinceEpoch;
   }
 
+  /// get Now Date Time.
+  /// 获取当前日期返回DateTime
+  static DateTime getNowDateTime() {
+    return DateTime.now();
+  }
+
   /// get Now Date Milliseconds.
   /// 获取当前毫秒值
   static int getNowDateMs() {
@@ -41,6 +47,30 @@ class DateUtils {
   /// 获取现在日期字符串，默认是：yyyy-MM-dd HH:mm:ss
   static String getNowDateString() {
     return formatDate(DateTime.now());
+  }
+
+  /// 获取昨天日期返回DateTime
+  static DateTime getYesterday() {
+    var dateTime = new DateTime.fromMillisecondsSinceEpoch(
+        DateTime.now().millisecondsSinceEpoch - 24 * 60 * 60 * 1000);
+    return dateTime;
+  }
+
+  /// 获取当前日期返回DateTime(utc)
+  static DateTime getNowUtcDateTime() {
+    return DateTime.now().toUtc();
+  }
+
+  /// 获取当前日期，返回指定格式
+  static String getNowDateTimeFormat(String outFormat) {
+    var formatResult = formatDate(getNowDateTime(),format: outFormat);
+    return formatResult;
+  }
+
+  /// 获取当前日期，返回指定格式
+  static String getUtcDateTimeFormat(String outFormat) {
+    var formatResult = formatDate(getNowUtcDateTime(),format: outFormat);
+    return formatResult;
   }
 
   /// format date by milliseconds.
