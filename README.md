@@ -194,6 +194,36 @@
     ```
 
 
+### 09.Sp轻量存储工具类
+- sp轻量级存储工具
+    ```
+    init                                     : 初始化，必须要初始化
+    hasKey                                   : 判断是否存在key的数据
+    putObject                                : 存储object类型数据
+    getObject                                : 获取sp中key的map数据
+    putObjectList                            : 存储sp中key的list集合
+    getObjectList                            : 获取sp中key的list集合
+    getString                                : 获取sp中key的字符串
+    putString                                : 存储sp中key的字符串
+    getBool                                  : 获取sp中key的布尔值
+    putBool                                  : 存储sp中key的布尔值
+    getInt                                   : 获取sp中key的int值
+    putInt                                   : 存储sp中key的int值
+    getDouble                                : 获取sp中key的double值
+    putDouble                                : 存储sp中key的double值
+    getStringList                            : 获取sp中key的list<String>值
+    putStringList                            : 存储sp中key的list<String>值
+    getStringMap                             : 获取sp中key的map值
+    putStringMap                             : 存储sp中key的map值
+    getDynamic                               : 获取sp中key的dynamic值
+    getKeys                                  : 获取sp中所有的key
+    remove                                   : 移除sp中key的值
+    clear                                    : 清除sp
+    isInitialized                            : 检查初始化
+    forEach                                  : 遍历打印sp的key和value
+    ```
+
+
 
 ### 11.加密和解密工具类
 - 加密和解密工具类
@@ -493,5 +523,8 @@
 
 ### 40.其他相关工具类
 
+
+### 41.参考项目和博客
+- https://github.com/Sky24n/flustars
 
 

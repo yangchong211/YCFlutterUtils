@@ -206,6 +206,7 @@ class SpUtils {
   }
 
   /// get keys.
+  /// 获取sp中所有的key
   static Set<String> getKeys() {
     if (_prefs == null){
       return null;

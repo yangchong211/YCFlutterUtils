@@ -9,6 +9,7 @@ import 'package:yc_flutter_utils/sp/sp_utils.dart';
 import 'package:yc_flutter_utils/toast/snack_utils.dart';
 import 'package:yc_flutter_utils_example/model/city.dart';
 import 'package:yc_flutter_utils/extens/extension_map.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SpPage extends StatefulWidget {
 
@@ -80,6 +81,15 @@ class _DatePageState extends State<SpPage> {
     if(!isWidget){
       return new Text("haha");
     }
+    // return new Column(
+    //   children: <Widget>[
+    //     new Text("获取sp中key的布尔值：" + sharedPreferences.getBool("100").toString()),
+    //     new Text("获取sp中key的double值：" + sharedPreferences.getDouble("101").toString()),
+    //     new Text("获取sp中key的int值：" + sharedPreferences.getInt("102").toString()),
+    //     new Text("获取sp中key的字符串：" + sharedPreferences.getString("103").toString()),
+    //     new Text("获取sp中key的list<String>值：" + sharedPreferences.getStringList("104").toString()),
+    //   ],
+    // );
     return new Column(
       children: <Widget>[
         new Text("获取sp中key的布尔值：" + SpUtils.getBool("100").toString()),
@@ -103,7 +113,16 @@ class _DatePageState extends State<SpPage> {
     });
   }
 
-  void put(){
+  // SharedPreferences sharedPreferences;
+  void put() async{
+    // sharedPreferences = await SharedPreferences.getInstance();
+    // sharedPreferences.setBool("100", true);
+    // sharedPreferences.setDouble("101", 101.1);
+    // sharedPreferences.setInt("102", 520);
+    // sharedPreferences.setString("103", "yangchong");
+    // sharedPreferences.setStringList("104", list);
+
+    await SpUtils.init();
     SpUtils.putBool("100", true).then((value){
         if(value){
           putSuccess = true;
@@ -111,28 +130,28 @@ class _DatePageState extends State<SpPage> {
           putSuccess = false;
         }
     });
-    // SpUtils.putDouble("101", 101.1);
-    // SpUtils.putInt("102", 520);
-    // SpUtils.putString("103", "yangchong");
-    // SpUtils.putStringList("104", list);
-    // SpUtils.putStringList2("105", list2);
-    // SpUtils.putStringMap("106", map).then((value){
-    //   if(value){
-    //     putSuccess = true;
-    //   } else {
-    //     putSuccess = false;
-    //   }
-    // });
-    // /// 存储实体对象示例。
-    // City city = new City("湖北黄冈");
-    // SpUtils.putObject("107", city);
-    // /// 存储实体对象list示例。
-    // List<City> list5 = new List();
-    // list5.add(new City("黄冈市"));
-    // list5.add(new City("北京市"));
-    // SpUtils.putObjectList("108", list5);
-    // setState(() {
-    //
-    // });
+    SpUtils.putDouble("101", 101.1);
+    SpUtils.putInt("102", 520);
+    SpUtils.putString("103", "yangchong");
+    SpUtils.putStringList("104", list);
+    SpUtils.putStringList2("105", list2);
+    SpUtils.putStringMap("106", map).then((value){
+      if(value){
+        putSuccess = true;
+      } else {
+        putSuccess = false;
+      }
+    });
+    /// 存储实体对象示例。
+    City city = new City("湖北黄冈");
+    SpUtils.putObject("107", city);
+    /// 存储实体对象list示例。
+    List<City> list5 = new List();
+    list5.add(new City("黄冈市"));
+    list5.add(new City("北京市"));
+    SpUtils.putObjectList("108", list5);
+    setState(() {
+
+    });
   }
 }
