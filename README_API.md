@@ -33,6 +33,7 @@
 - 31.资源相关工具类
 - 32.Snackbar工具类
 - 33.转化相关工具类
+- 34.全局异常捕获工具
 - 40.其他相关工具类
 
 
@@ -546,6 +547,24 @@
     - 删除字符串内的所有空格
 - String numericOnly(String s, {bool firstWordOnly = false})
     - 提取字符串的数值
+
+
+### 34.全局异常捕获工具
+- 针对flutter全局异常捕获，可以使用：handle_exception
+    ```
+    //如果使用，在main方法中，如下所示：
+    hookCrash(() {
+      runApp(MainApp());
+    });
+    ```
+- 捕获一场打印输出：
+    ```
+    I/flutter ( 9506): yc e  — — — — — — — — — — st — — — — — — — — — — — — —
+    I/flutter ( 9506): yc e | handle_exception :  e---->MissingPluginException(No implementation found for method getAll on channel plugins.flutter.io/shared_
+    I/flutter ( 9506): yc e | preferences)
+    I/flutter ( 9506): yc e  — — — — — — — — — — ed — — — — — — — — — ---— —
+    I/flutter ( 9506): yc e  handle_exception :  stack---->
+    ```
 
 
 ### 40.其他相关工具类

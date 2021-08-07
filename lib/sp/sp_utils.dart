@@ -15,14 +15,16 @@ class SpUtils {
 
   /// 初始化，必须要初始化
   static Future<SharedPreferences> init() async {
-    _prefs = await SharedPreferences.getInstance();
+    if(ObjectUtils.isNull(_prefs)){
+      _prefs = await SharedPreferences.getInstance();
+    }
     return _prefs;
   }
 
   /// 判断是否存在key的数据
   static bool hasKey(String key) {
     if (_prefs == null){
-      return null;
+      return false;
     }
     Set keys = getKeys();
     return keys.contains(key);
@@ -32,8 +34,8 @@ class SpUtils {
   /// 存储object类型数据
   static Future<bool> putObject(String key, Object value) {
     if (_prefs == null){
-      // return null;
-      return Future.value(false);
+      return null;
+      //return Future.value(false);
     }
     return _prefs.setString(key, value == null ? "" : json.encode(value));
   }
@@ -51,8 +53,8 @@ class SpUtils {
   /// 存储sp中key的list集合
   static Future<bool> putObjectList(String key, List<Object> list) {
     if (_prefs == null){
-      // return null;
-      return Future.value(false);
+      return null;
+      //return Future.value(false);
     }
     List<String> _dataList = list?.map((value) {
       return json.encode(value);
@@ -104,8 +106,8 @@ class SpUtils {
   /// 存储sp中key的布尔值
   static Future<bool> putBool(String key, bool value) {
     if (_prefs == null){
-      // return null;
-      return Future.value(false);
+      return null;
+      // return Future.value(false);
     }
     return _prefs.setBool(key, value);
   }
@@ -178,7 +180,8 @@ class SpUtils {
   /// 存储sp中key的map值
   static Future<bool> putStringMap(String key, Map value) {
     if (_prefs == null){
-      return Future.value(false);
+      return null;
+      // return Future.value(false);
     }
     var jsonMapString = value.toJsonString();
     return _prefs.setString(key, jsonMapString);
