@@ -588,11 +588,13 @@
 
 
 ### 41.参考项目和博客
+- https://github.com/Blankj/AndroidUtilCode
 - https://pub.dev/packages/emote_utils/versions
 - https://blog.csdn.net/iotjin/article/details/104881659
 - https://cloud.tencent.com/developer/article/1772198
 - https://blog.csdn.net/yechaoa/article/details/89845701
 - https://blog.csdn.net/aau88497/article/details/102344984
 - https://github.com/Sky24n/flustars
+- https://github.com/a14n/dart-decimal
 
 
