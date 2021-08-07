@@ -36,6 +36,45 @@
 - 34.全局异常捕获工具
 - 40.其他相关工具类
 
+
+### 00.该库说明
+#### 00.1 该库工具类汇总
+|**工具类** | 功能说明 |
+|--------   |-----        |
+|**EventBusService** | bus事件通知工具类，实现了订阅者模式。用于组件之间通信 |
+|**CalculateUtils** | 计算文本的宽，高 |
+|**ColorUtils** | 主要是将RGB/ARGB转化为16进制字符串颜色或者Color |
+|**DateFormats** | 常见中文，英文的日期时间转化的格式。包含绝大多数的日期格式 |
+|**DateUtils** | 日期工具类，获取日期时间，各种时间之间的转换操作 |
+|**EncryptUtils** | 加解密工具类，主要是md5加密，base64加密和解密，异或加解密等 |
+|**ExtensionXxx** | 拓展类，包含int，list，map，set，num，string等拓展类，有大多数常见操作方法 |
+|**TransformUtils** | 转化工具类，包含int，string转化二进制，字母大小写转化等等 |
+|**ValidatorUtils** | 校验工具类，包含常见类型，图片，url，邮箱，电话，资源文件，驼峰命名等校验|
+|**ExtensionXxx** | 拓展类，包含int，list，map，set，num，string等拓展类，有大多数常见操作方法 |
+|**TransformUtils** | 转化工具类，包含int，string转化二进制，字母大小写转化等等 |
+|**FileUtils** | 文件缓存类，主要是存储和获取字符串，Map，Json等数据，写到本地file文件 |
+|**TransformUtils** | 转化工具类，包含int，string转化二进制，字母大小写转化等等 |
+|**AppLocalizations** | i18相关，可以设置locale，获取语言中字符串 |
+|**ImageUtils** | 图片工具类，主要是负责图片和base64转化，加载网络图片，切换圆角，圆形等 |
+|**JsonUtils** | json转化工具类，主要是负责list，map，对象和json之间转化等 |
+|**get_it** | spi接口实现，将接口（抽象基类）与具体实现分离和解耦合 |
+|**LogUtils** | 日志工具类，设置日志开关，长度，以及可以过滤标签，打印5种类型日志 |
+|**NumUtils** | Num格式工具类，主要是负责num相关处理和转化操作 |
+|**ObjectUtils** | Object超类工具类，负责各种对象判断，获取长度等操作 |
+|**RegexConstants** | 常见正则表达式的规则常量，这部分主要参考AndroidUtils |
+|**RegexUtils** | 正则表达式工具类，主要是电话，身份证，邮箱，ip，网络等校验 |
+|**ScreenUtils** | 屏幕工具类，获取屏幕的宽高，以及像素密度比等 |
+|**SpUtils** | sp存储工具类，适合存储轻量级数据，不建议存储json长字符串|
+|**TextUtils** | 文本工具类，主要处理字符串缩略，*，比较，移除等操作 |
+|**TimerUtils** | 倒计时器工具类，设置倒计时总时间，间隔时间，开始暂停等 |
+|**OtherUtils** | RandomUtils随机工具类，SnackUtils，PlatformUtils平台工具类 |
+
+
+
+#### 00.2 如何使用该库
+- 具体文档可以demo
+
+
 ### 01.事件通知bus工具类
 - 事件总线
     - 通常实现了订阅者模式，订阅者模式包含发布者和订阅者两种角色。
@@ -88,7 +127,7 @@
 
 
 ### 02.颜色Color工具类
-- 颜色Color工具类
+- 颜色Color工具类。主要是将RGB或者ARGB颜色转化为Color对象，16进制颜色字符串等等。
     ```
     hexToColor                               : 将#A357D6颜色转化为16进制的Color
     toColor                                  : 将#FF6325颜色或者#50A357D6转化为16进制的Color
@@ -98,7 +137,7 @@
 
 
 ### 03.日期转化工具类
-- 日期转化工具类
+- 日期转化工具类。主要是获取当前日期，按指定格式格式化时间，以及多种格式化日期工具方法
     ```
     getNowDateTime                           : 获取当前日期返回DateTime
     getYesterday                             : 获取昨天日期返回DateTime
@@ -120,7 +159,7 @@
 
 ### 04.File文件工具类
 #### 4.1 文件存储工具类
-- 文件存储工具类
+- 文件存储工具类。主要是存储和获取String，Json等文件，这个是存储到file本地文件
     ```
     getTempDir                               : 获取一个临时目录(缓存)，系统可以随时清除
     getAppDocDir                             : 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
@@ -137,7 +176,7 @@
 
 
 #### 4.2 文件管理工具类
-- 文件管理工具类
+- 文件管理工具类。主要是创建不同的目录路径，创建文件，或者目录路径等操作。
     ```
     getTempPath                              : 获取设备上临时目录的路径，该目录没有备份，适合存储下载文件的缓存。
     getAppDocPath                            : 获取应用程序的目录，用于存储只有它可以访问的文件。只有当应用程序被删除时，系统才会清除目录。
@@ -154,7 +193,7 @@
 
 
 ### 06.Json转化工具类
-- Json转化工具类
+- Json转化工具类。json转化常见的操作，逐步完善list，map和json字符串互转等。
     ```
     printJson                                : 单纯的Json格式输出打印
     printJsonEncode                          : 单纯的Json格式输出打印
@@ -167,7 +206,7 @@
 
 
 ### 07.Log日志打印工具类
-- Log日志打印工具类
+- Log日志打印工具类。五种不同类型日志，还可以添加tag标签过滤。
     ```
     init                                     : 初始化日志，自定义tag，是否是debug环境，日志最大长度，这几个字段都是非必选
     d                                        : 打印debug日志
@@ -180,7 +219,7 @@
 
 
 ### 08.屏幕参数工具类
-- 屏幕参数工具类
+- 屏幕参数工具类。获取屏幕的宽，高，像素密度，状态栏等属性。后期完善适配工作……
     ```
     screenWidthDp                            : 当前设备宽度 dp
     screenHeightDp                           : 当前设备高度 dp
@@ -195,7 +234,7 @@
 
 
 ### 09.Sp轻量存储工具类
-- sp轻量级存储工具
+- sp轻量级存储工具。主要是sp存储和获取int，String，list，map等数据操作。
     ```
     init                                     : 初始化，必须要初始化
     hasKey                                   : 判断是否存在key的数据
@@ -226,7 +265,7 @@
 
 
 ### 11.加密和解密工具类
-- 加密和解密工具类
+- 加密和解密工具类。目前支持base64加解密，md5加密。后期逐步完善更多加密方法……
     ```
     encodeMd5                                : md5 加密字符串，这种是不可逆的
     encodeBase64                             : Base64加密字符串
@@ -237,7 +276,7 @@
 
 
 ### 12.Num格式处理工具类
-- 格式处理工具类
+- 格式处理工具类。主要是处理num格式转化相关操作。
     ```
     isNum                                    : 检查字符串是int还是double
     getIntByValueString                      : 将数字字符串转int。如果字符串不是数字，则转化为0
@@ -256,7 +295,7 @@
 
 
 ### 14.图片处理工具类
-- 其他待完善，补充圆角，圆形切割图片，以及处理本地等图片的方法。
+- 其他待完善，补充圆角，圆形切割图片，以及处理本地等图片的方法。后期完善获取图片属性，图片压缩，各种切圆角方法。
     ```
     base64ToImage                            : 将base64流转化为图片
     fileToBase64                             : 将图片file转化为base64
@@ -522,9 +561,38 @@
 
 
 ### 40.其他相关工具类
+#### 40.2 随机工具类
+- RandomUtils
+    ```
+    randomColor                              : 生成一个表示十六进制颜色的随机整数
+    randomString                             : 生成指定长度或随机长度的随机字符串
+    ```
+
+
+#### 40.3 获取平台工具类
+- PlatformUtils。该工具类可以通过获取平台，然后设置一个value区别平台信息。
+    ```
+    final value = PlatformUtils.select(
+      ios: "ios",
+      android: "android",
+      web: "web",
+      fuchsia: "fuchsia",
+      macOS: () => "macOS",
+      windows: () => "windows",
+      linux: () => "linux",
+    );
+    
+    //结果，在Android设备上，value就是：android
+    ```
+
 
 
 ### 41.参考项目和博客
+- https://pub.dev/packages/emote_utils/versions
+- https://blog.csdn.net/iotjin/article/details/104881659
+- https://cloud.tencent.com/developer/article/1772198
+- https://blog.csdn.net/yechaoa/article/details/89845701
+- https://blog.csdn.net/aau88497/article/details/102344984
 - https://github.com/Sky24n/flustars
 
 
