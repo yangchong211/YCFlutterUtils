@@ -34,6 +34,7 @@
 - 32.Snackbar工具类
 - 33.转化相关工具类
 - 34.全局异常捕获工具
+- 35.解析数据工具类
 - 40.其他相关工具类
 
 
@@ -67,6 +68,8 @@
 |**SpUtils** | sp存储工具类，适合存储轻量级数据，不建议存储json长字符串|
 |**TextUtils** | 文本工具类，主要处理字符串缩略，*，比较，移除等操作 |
 |**TimerUtils** | 倒计时器工具类，设置倒计时总时间，间隔时间，开始暂停等 |
+|**UrlUtils** | url工具类，获取url的host，参数，校验等操作 |
+|**SystemUtils** | 系统工具类，复制内容到剪切板，弹出和关闭软键盘，清除数据等 |
 |**OtherUtils** | RandomUtils随机工具类，SnackUtils，PlatformUtils平台工具类 |
 
 
@@ -309,6 +312,34 @@
     ```
 
 
+#### 15.网络处理工具类
+#### 15.1 网络请求工具类
+    ```
+    containsTarget                           : 判断url链接是否包含参数
+    getFirstPath                             : 获取url中第一个参数
+    getUrlHost                               : 获取url链接中host
+    getUrlScheme                             : 获取url链接中scheme
+    getFirstPath                             : 获取url中第一个参数
+    isURL                                    : 返回输入是否匹配url的正则表达式
+    ```
+
+
+#### 15.2 Url解析工具类
+- 处理url解析相关工具类
+    ```
+    base64ToImage                            : 将base64流转化为图片
+    fileToBase64                             : 将图片file转化为base64
+    networkImageToBase64                     : 将网络链接图片转化为base64
+    assetImageToBase64                       : 将asset图片转化为base64
+    showNetImageWh                           : 加载网络图片，并且指定宽高大小。使用默认预加载loading和错误视图
+    showNetImageWhError                      : 加载网络图片，并且指定宽高大小。传入错误视图
+    showNetImageWhPlaceError                 : 加载网络图片，并且指定宽高大小。传入预加载，错误视图
+    showNetImageWhClip                       : 加载网络图片，并且指定宽高大小，切割圆角
+    showNetImageCircle                       : 加载网络图片，切割圆形图片
+    ```
+
+
+
 ### 16.常用正则工具类
 - 常用正则表达式，借鉴AndroidUtils工具类，将java转为dart
     ```
@@ -390,11 +421,14 @@
     ```
 
 
+### 19.路由管理工具类
+
 
 ### 21.Text文本工具类
 - 文本相关工具类如下：
     ```
     isEmpty                                  : 判断文本内容是否为空
+    isNotEmpty                               : 判断文本内容是否不为空
     startsWith                               : 判断字符串是以xx开头
     contains                                 : 判断字符串中是否包含xx
     abbreviate                               : 使用点缩写字符串
@@ -560,6 +594,12 @@
     ```
 
 
+### 35.解析数据工具类
+- 解析xml/html数据工具类
+
+
+
+
 ### 40.其他相关工具类
 #### 40.2 随机工具类
 - RandomUtils
@@ -586,6 +626,16 @@
     ```
 
 
+#### 40.4 剪切板工具类
+- 系统工具类，主要是软键盘操作和复制内容到剪切板
+    ```
+    copyToClipboard                          : 拷贝文本内容到剪切板
+    hideKeyboard                             : 隐藏软键盘，具体可看：TextInputChannel
+    showKeyboard                             : 展示软键盘
+    clearClientKeyboard                      : 清除数据
+    ```
+
+
 
 ### 41.参考项目和博客
 - https://github.com/Blankj/AndroidUtilCode
@@ -596,5 +646,6 @@
 - https://blog.csdn.net/aau88497/article/details/102344984
 - https://github.com/Sky24n/flustars
 - https://github.com/a14n/dart-decimal
+- https://pub.dev/packages?q=html_xml_parser
 
 

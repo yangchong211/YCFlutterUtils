@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:yc_flutter_utils/flutter_utils.dart';
 import 'package:yc_flutter_utils/log/log_utils.dart';
 
 
@@ -15,14 +19,47 @@ import 'package:yc_flutter_utils/log/log_utils.dart';
  *             4.如何统一管理路由，避免混乱
  * </pre>
  */
-class AppNavigator {
+class NavigatorUtils {
+
+  /// 解析路由数据并返回map
+  Map<String, dynamic> parseRoute(String route) {
+    LogUtils.d('parseRoute: $route');
+    if (TextUtils.isEmpty(route)){
+      return null;
+    }
+    String routeName = '', jsonData;
+    if (route.contains('/')) {
+      routeName = route.substring(0, route.indexOf("/"));
+      jsonData = route.substring(route.indexOf("/") + 1);
+    } else {
+      routeName = route;
+    }
+    Map<String, dynamic> data =
+    jsonData != null ? json.decode("$jsonData") : null;
+    LogUtils.d('parseRoute: data=$data');
+    return {'routeName': routeName, 'data': data};
+  }
+
+  static Map<String, dynamic> parseRouter(Window window){
+    // window.defaultRouteName就是获取Android传递过来的参数
+    // 通过这个字段我们就可以进行Flutter页面的路由的分发
+    String url = window.defaultRouteName;
+    // route名称，路由path路径名称
+    String route = url.indexOf('?') == -1 ? url : url.substring(0, url.indexOf('?'));
+    // 参数Json字符串
+    String paramsJson = url.indexOf('?') == -1 ? '{}' : url.substring(url.indexOf('?') + 1);
+    // 解析参数
+    Map<String, dynamic> params = json.decode(paramsJson);
+    LogUtils.d('path---->' + route + " " + params.toString());
+    params["route"] = route;
+    return params;
+  }
 
   // 什么是路由管理？？？
   // 简单俩说，导航管理都会维护一个路由栈，
   // 路由入栈(push)操作对应打开一个新页面，
   // 路由出栈(pop)操作对应页面关闭操作，
   // 而路由管理主要是指如何来管理路由栈。
-
   static pushGlobal(GlobalKey<NavigatorState> navigatorKey, Widget scene) {
     // Another exception was thrown:
     // Navigator operation requested with a context that does not include a Navigator.

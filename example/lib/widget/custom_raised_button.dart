@@ -22,7 +22,7 @@ class CustomRaisedButton extends StatelessWidget {
         //第二张路由写法
         // Navigator.of(context)
         //     .push(new MaterialPageRoute(builder: (context) => _pageNavigator));
-        AppNavigator.push(context, _pageNavigator);
+        NavigatorUtils.push(context, _pageNavigator);
       },
       child: Text(
         _btnTitle,

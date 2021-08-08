@@ -6,6 +6,11 @@ class TextUtils {
     return text == null || text.isEmpty;
   }
 
+  /// 判断文本内容是否不为空
+  static bool isNotEmpty(String text) {
+    return !isEmpty(text);
+  }
+
   /// 判断字符串是以xx开头
   static bool startsWith(String str, Pattern prefix, [int index = 0]) {
     return str != null && str.startsWith(prefix, index);
@@ -141,4 +146,29 @@ class TextUtils {
     }
     return sb.toString();
   }
+
+  String currencyFormat(int money) {
+    if (money == null) {
+      return "";
+    }
+    String moneyStr = money.toString();
+    String finalStr = "";
+    int groupSize = 3;
+    int oddNumberLength = moneyStr.length -
+        (moneyStr.length ~/ groupSize) * groupSize;
+    if (oddNumberLength > 0) {
+      finalStr += moneyStr.substring(0, oddNumberLength);
+      if (moneyStr.length > groupSize) {
+        finalStr += ",";
+      }
+    }
+    for (int i = oddNumberLength; i < moneyStr.length; i += groupSize) {
+      finalStr += moneyStr.substring(i, i + groupSize);
+      if (i + groupSize < moneyStr.length - 1) {
+        finalStr += ",";
+      }
+    }
+    return finalStr;
+  }
+
 }
