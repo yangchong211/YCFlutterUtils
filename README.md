@@ -612,6 +612,8 @@
     ```
     randomColor                              : 生成一个表示十六进制颜色的随机整数
     randomString                             : 生成指定长度或随机长度的随机字符串
+    randInt                                  : 在开始和结束之间生成一个随机数
+    randomElement                            : 从列表中返回一个随机元素
     ```
 
 

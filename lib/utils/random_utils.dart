@@ -2,6 +2,8 @@ library randomutils;
 
 import 'dart:math';
 
+import 'package:yc_flutter_utils/flutter_utils.dart';
+
 Random _random = Random();
 
 /// 随机工具类
@@ -51,4 +53,20 @@ class RandomUtils {
   static String removeNonDigits(String str) {
     return str.replaceAll(RegExp(r"\D"), "");
   }
+
+  /// Generate a random number between start and end inclusive.
+  /// 在开始和结束之间生成一个随机数
+  static int randInt(int end, {int start = 0}) {
+    return _random.nextInt(end) + start;
+  }
+
+  /// 从列表中返回一个随机元素。
+  static T randomElement<T>(List<T> items) {
+    if(ObjectUtils.isEmpty(items)){
+      return null;
+    }
+    return items[randInt(items.length)];
+  }
+
+
 }
