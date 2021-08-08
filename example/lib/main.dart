@@ -7,6 +7,7 @@ import 'package:yc_flutter_utils/except/handle_exception.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:yc_flutter_utils/log/log_utils.dart';
 import 'package:yc_flutter_utils_example/utils/bus_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/byte_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/color_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/data_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/encrypt_utils_page.dart';
@@ -175,6 +176,7 @@ class HomePageState extends State<HomePage>{
               CustomRaisedButton(new SpPage(), "SpUtils sp存储工具类"),
               CustomRaisedButton(new ParserPage(), "MarkupUtils 解析xml/html工具类"),
               CustomRaisedButton(new SystemPage(), "SystemUtils 系统工具类"),
+              CustomRaisedButton(new BytePage(), "Byte 字节工具类"),
               CustomRaisedButton(new OtherPage(), "其他一些工具类"),
             ],
           ),
