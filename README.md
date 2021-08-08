@@ -314,6 +314,10 @@
 
 #### 15.网络处理工具类
 #### 15.1 网络请求工具类
+
+
+#### 15.2 Url解析工具类
+- 处理url解析相关工具类
     ```
     containsTarget                           : 判断url链接是否包含参数
     getFirstPath                             : 获取url中第一个参数
@@ -322,22 +326,6 @@
     getFirstPath                             : 获取url中第一个参数
     isURL                                    : 返回输入是否匹配url的正则表达式
     ```
-
-
-#### 15.2 Url解析工具类
-- 处理url解析相关工具类
-    ```
-    base64ToImage                            : 将base64流转化为图片
-    fileToBase64                             : 将图片file转化为base64
-    networkImageToBase64                     : 将网络链接图片转化为base64
-    assetImageToBase64                       : 将asset图片转化为base64
-    showNetImageWh                           : 加载网络图片，并且指定宽高大小。使用默认预加载loading和错误视图
-    showNetImageWhError                      : 加载网络图片，并且指定宽高大小。传入错误视图
-    showNetImageWhPlaceError                 : 加载网络图片，并且指定宽高大小。传入预加载，错误视图
-    showNetImageWhClip                       : 加载网络图片，并且指定宽高大小，切割圆角
-    showNetImageCircle                       : 加载网络图片，切割圆形图片
-    ```
-
 
 
 ### 16.常用正则工具类
