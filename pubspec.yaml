@@ -1,7 +1,7 @@
 name: yc_flutter_utils
 description: flutter utils
-version: 0.0.3
-homepage: https://github.com/yangchong211
+version: 0.0.4
+homepage: https://github.com/yangchong211/YCFlutterUtils
 
 
 environment:
