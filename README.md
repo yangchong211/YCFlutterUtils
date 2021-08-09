@@ -1,4 +1,4 @@
-# YCFlutterUtils
+# FlutterUtils
 #### 目录介绍
 - 01.事件通知bus工具类
 - 02.颜色Color工具类
