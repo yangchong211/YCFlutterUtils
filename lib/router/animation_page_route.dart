@@ -1,62 +1,48 @@
-
 import 'dart:ui';
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:yc_flutter_utils/router/animation_type.dart';
 
 final Tween<double> _tweenFade = Tween<double>(begin: 0, end: 1.0);
 
 final Tween<Offset> _primaryTweenSlideFromBottomToTop =
-Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero);
+    Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero);
 
-// final Tween<Offset> _secondaryTweenSlideFromBottomToTop =
-//     Tween<Offset>(begin: Offset.zero, end: const Offset(0.0, -1.0));
+final Tween<Offset> _secondaryTweenSlideFromBottomToTop =
+    Tween<Offset>(begin: Offset.zero, end: const Offset(0.0, -1.0));
 
 final Tween<Offset> _primaryTweenSlideFromTopToBottom =
-Tween<Offset>(begin: const Offset(0.0, -1.0), end: Offset.zero);
+    Tween<Offset>(begin: const Offset(0.0, -1.0), end: Offset.zero);
 
-// final Tween<Offset> _secondaryTweenSlideFromTopToBottom =
-//     Tween<Offset>(begin: Offset.zero, end: const Offset(0.0, 1.0));
+final Tween<Offset> _secondaryTweenSlideFromTopToBottom =
+    Tween<Offset>(begin: Offset.zero, end: const Offset(0.0, 1.0));
 
 final Tween<Offset> _primaryTweenSlideFromRightToLeft =
-Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero);
+    Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero);
 
 final Tween<Offset> _secondaryTweenSlideFromRightToLeft =
-Tween<Offset>(begin: Offset.zero, end: const Offset(-1.0, 0.0));
+    Tween<Offset>(begin: Offset.zero, end: const Offset(-1.0, 0.0));
 
 final Tween<Offset> _primaryTweenSlideFromLeftToRight =
-Tween<Offset>(begin: const Offset(-1.0, 0.0), end: Offset.zero);
+    Tween<Offset>(begin: const Offset(-1.0, 0.0), end: Offset.zero);
 
 final Tween<Offset> _secondaryTweenSlideFromLeftToRight =
-Tween<Offset>(begin: Offset.zero, end: const Offset(1.0, 0.0));
+    Tween<Offset>(begin: Offset.zero, end: const Offset(1.0, 0.0));
 
-/// 动画类型枚举，`SlideRL`,`SlideLR`,`SlideTB`, `SlideBT`, `Fade`
-enum AnimationType {
-  /// 从右到左的滑动
-  SlideRL,
-
-  /// 从左到右的滑动
-  SlideLR,
-
-  /// 从上到下的滑动
-  SlideTB,
-
-  /// 从下到上的滑动
-  SlideBT,
-
-  /// 透明过渡
-  Fade,
-}
-//https://www.codenong.com/js1cbdde2b112e/
 class AnimationPageRoute<T> extends PageRoute<T> {
   AnimationPageRoute({
+    /// 必要参数要用@required 标注
     @required this.builder,
     this.isExitPageAffectedOrNot = true,
+    //从右到左的滑动
     this.animationType = AnimationType.SlideRL,
     RouteSettings settings,
     this.maintainState = true,
     bool fullscreenDialog = false,
   })  : assert(builder != null),
+
+        /// 使用assert断言函数，
         assert(isExitPageAffectedOrNot != null),
         assert(animationType != null),
         assert(maintainState != null),
@@ -69,6 +55,7 @@ class AnimationPageRoute<T> extends PageRoute<T> {
   /// 该参数只针对当[AnimationType]为[SlideLR]或[SlideRL]新页面及当前页面动画均有效
   final bool isExitPageAffectedOrNot;
 
+  /// 动画类型
   final AnimationType animationType;
 
   @override

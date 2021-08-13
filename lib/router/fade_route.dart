@@ -18,23 +18,29 @@ class FadeRoute extends PageRoute {
     this.maintainState = true,
   });
 
+  /// 跳转目标widget
   final WidgetBuilder builder;
 
+  /// 动画时间
   @override
   final Duration transitionDuration;
 
+  /// 是否不透明的
   @override
   final bool opaque;
 
   @override
   final bool barrierDismissible;
 
+  /// 屏障的颜色
   @override
   final Color barrierColor;
 
+  /// 屏障的标签
   @override
   final String barrierLabel;
 
+  /// 是否状态保留
   @override
   final bool maintainState;
 
@@ -46,7 +52,9 @@ class FadeRoute extends PageRoute {
   Widget buildTransitions(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(
+      //动画效果
       opacity: animation,
+      //跳转目标页面
       child: builder(context),
     );
   }

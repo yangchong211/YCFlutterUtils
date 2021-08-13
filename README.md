@@ -72,7 +72,7 @@
 |**UrlUtils** | url工具类，获取url的host，参数，校验等操作 |
 |**SystemUtils** | 系统工具类，复制内容到剪切板，弹出和关闭软键盘，清除数据等 |
 |**OtherUtils** | RandomUtils随机工具类，SnackUtils，PlatformUtils平台工具类 |
-
+|**MVP** | Flutter版本的MVP架构模版，待完善中…… |
 
 
 #### 00.2 如何使用该库
@@ -411,6 +411,26 @@
 
 
 ### 19.路由管理工具类
+- 路由跳转相关工具类：NavigatorUtils
+    ```
+    parseRoute                               : 解析路由数据并返回map
+    parseRouter                              : 从window获取NA传递的路由参数
+    pushGlobal                               : 从根结点跳转页面
+    push                                     : 原生导航到新路由
+    pushAnimation                            : 跳转页面带动画。采用原生PageRouteBuilder，这个是一个渐变的效果
+    pushAnimationFade                        : 跳转页面带动画
+  
+    /// type ---> SlideRL                    从右到左的滑动
+    /// type ---> SlideLR                    从左到右的滑动
+    /// type ---> SlideTB                    从上到下的滑动
+    /// type ---> SlideBT                    从下到上的滑动
+    /// type ---> Fade                       透明过渡
+    pushAnimationType                        : 跳转页面带动画，传入type类型。
+    pushNamed                                : 导航到新路由
+    pushNamedArguments                       : 导航到新路由并传入参数
+    pushResult                               : 跳转新页面并返回结果回调
+    ```
+
 
 
 ### 21.Text文本工具类
