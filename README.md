@@ -71,6 +71,7 @@
 |**TimerUtils** | 倒计时器工具类，设置倒计时总时间，间隔时间，开始暂停等 |
 |**UrlUtils** | url工具类，获取url的host，参数，校验等操作 |
 |**SystemUtils** | 系统工具类，复制内容到剪切板，弹出和关闭软键盘，清除数据等 |
+|**NavigatorUtils** | 路由跳转工具类，携带参数，回调，以及跳转页面各种过渡动画类型设置 |
 |**OtherUtils** | RandomUtils随机工具类，SnackUtils，PlatformUtils平台工具类 |
 |**MVP** | Flutter版本的MVP架构模版，待完善中…… |
 
