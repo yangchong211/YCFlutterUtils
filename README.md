@@ -628,6 +628,22 @@
 
 
 ### 40.其他相关工具类
+#### 40.1 队列执行工具类
+- TaskQueueUtils：队列task轮训工具类
+    ```
+    // 创建请求队列
+    TaskQueueUtils _tripQueue = TaskQueueUtils();
+    
+    // 添加任务，并指定最多任务数量
+    _tripQueue.addTask(() async {
+      return await fetchTrip();
+    },3);
+    
+    // 取消执行任务
+    _tripQueue.cancelTasks();
+    ```
+
+
 #### 40.2 随机工具类
 - RandomUtils
     ```
