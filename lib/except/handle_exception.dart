@@ -5,7 +5,7 @@ import 'package:yc_flutter_utils/log/log_utils.dart';
 const bool _inProduction = const bool.fromEnvironment("dart.vm.product");
 const String TAG = "handle_exception : ";
 
-void _reportError(dynamic e, StackTrace stack) {
+void reportError(dynamic e, StackTrace stack) {
   LogUtils.e('$TAG e---->' + e.toString());
   LogUtils.e('$TAG stack---->' + stack.toString());
 }
@@ -48,7 +48,7 @@ void hookCrash(Function main) {
     },
     onError: (dynamic error, StackTrace stack) {
       //捕获异常打印日志
-      _reportError(error, stack);
+      reportError(error, stack);
     },
   );
 }

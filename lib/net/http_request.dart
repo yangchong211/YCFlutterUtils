@@ -27,7 +27,7 @@ class HttpRequest{
       //这个是请求参数
       Map<String, String> paramMap = params == null ? new Map() : params;
       http.Response res;
-      if (HttpUtils.POST == method) {
+      if (HttpApiUtils.POST == method) {
         LogUtils.i("POST:URL="+url);
         LogUtils.i("POST:BODY="+paramMap.toString());
         //post请求

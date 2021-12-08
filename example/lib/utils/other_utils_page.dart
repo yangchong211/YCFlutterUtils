@@ -5,7 +5,7 @@ import 'package:yc_flutter_utils/date/data_formats.dart';
 import 'package:yc_flutter_utils/date/date_utils.dart';
 import 'package:yc_flutter_utils/encrypt/encrypt_utils.dart';
 import 'package:yc_flutter_utils/object/object_utils.dart';
-import 'package:yc_flutter_utils/utils/platform_utils.dart';
+import 'package:yc_flutter_utils/platform/platform_utils.dart';
 import 'package:yc_flutter_utils/utils/random_utils.dart';
 
 class OtherPage extends StatefulWidget {
@@ -63,6 +63,12 @@ class _PageState extends State<OtherPage> {
           new Text("生成一个表示十六进制颜色的随机整数：" + RandomUtils.randomColor().toString()),
           new Text("生成指定长度或随机长度的随机字符串：" + RandomUtils.randomString(length: 6).toString()),
           new Text("返回值或运行基于平台的函数  value: $value, valueFromFunction: $valueFromFunction"),
+          new Text("判断是否是Android: ${PlatformUtils.isAndroid()}"),
+          new Text("判断是否是Android2: ${PlatformUtils.isAndroid2(context)}"),
+          new Text("判断是否是iOS: ${PlatformUtils.isIOS()}"),
+          new Text("判断是否是iOS: ${PlatformUtils.isIOS2(context)}"),
+          new Text("获取平台的渠道: ${PlatformUtils.get(context: context)}"),
+          new Text("获取平台的渠道内容: ${PlatformUtils.getTargetPlatform(context: context)}"),
         ],
       ),
     );

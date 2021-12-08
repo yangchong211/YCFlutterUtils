@@ -16,4 +16,15 @@ class SnackUtils{
     ));
   }
 
+  static GlobalKey<ScaffoldState> scaffoldKey;
+
+  //吐司
+  static showToast(String msg) {
+    if(scaffoldKey==null){
+      scaffoldKey = new GlobalKey<ScaffoldState>();
+    }
+    scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text(msg)));
+  }
+
+
 }

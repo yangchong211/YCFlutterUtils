@@ -3,13 +3,19 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 /// 图片工具类
 class ImageUtils {
+
+  ///读取本地资源文件
+  static String getImagePath(String name,
+      {String path = "assets/images/",String format = "png"}) {
+    return "$path$name.$format";
+  }
 
   ///将base64流转化为图片
   static MemoryImage base64ToImage(String base64String) {

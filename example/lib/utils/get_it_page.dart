@@ -18,6 +18,9 @@ class GetItState extends State<GetItPage>{
 
   String title = "初始化值";
   GetItLocator getItLocator;
+  String titleLocation = "位置";
+  String titleLocationData = "位置数据";
+  LocationListener _locationListener = locationService();
 
   @override
   void initState() {
@@ -26,6 +29,8 @@ class GetItState extends State<GetItPage>{
       getItLocator = new GetItLocator();
       getItLocator.register();
     }
+    _locationListener.registerLocationChangedFunction(_onLocationChange);
+    _locationListener.registerDataChangedFunction(_onDataChange);
   }
 
   @override
@@ -34,6 +39,8 @@ class GetItState extends State<GetItPage>{
     if(getItLocator!=null){
       getItLocator.reset();
     }
+    _locationListener.unregisterLocationChangedFunction(_onLocationChange);
+    _locationListener.unregisterDataChangedFunction(_onDataChange);
   }
 
   @override
@@ -83,40 +90,57 @@ class GetItState extends State<GetItPage>{
               color: const Color(0xffff0000),
               child: new Text('使用GetIt调用ResourceService'),
             ),
+
+            RaisedButton(
+              onPressed: () {
+                _locationListener.locationChangedCallback(1.8, 1.6);
+              },
+              color: const Color(0xffff0000),
+              child: new Text('修改位置：$titleLocation'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _locationListener.locationDataChangedCallback(520.0);
+              },
+              color: const Color(0xffff0000),
+              child: new Text('修改位置数据：$titleLocationData'),
+            ),
           ],
         ));
   }
 
+
+  void _onLocationChange(double lat, double lng) {
+    setState(() {
+      titleLocation = "lat $lat , lng $lng";
+    });
+  }
+
+  void _onDataChange(double p1) {
+    setState(() {
+      titleLocationData = "double $p1";
+    });
+  }
 }
 
 class GetItLocator{
 
   //简单案例，方便分析代码原理
   GetItHelper getIt = new GetItHelper();
-  GetIt serviceLocator = GetIt.instance;
 
   void register(){
     //注册模式状态管理service
     getIt.registerSingleton<BusinessService>(new BusinessServiceImpl());
-    serviceLocator.registerLazySingleton<BusinessService>(() => BusinessServiceImpl());
   }
 
   void reset(){
     getIt.reset();
-    //解绑操作
-    serviceLocator.resetLazySingleton<BusinessService>();
   }
 
   BusinessService get(){
     var businessService = getIt<BusinessService>();
     return businessService;
   }
-
-  BusinessService getService(){
-    BusinessService businessService = serviceLocator<BusinessService>();
-    return businessService;
-  }
-
 }
 
 abstract class BusinessService {
@@ -168,3 +192,78 @@ class ResourceManagerImpl extends ResourceService{
   }
 
 }
+
+
+
+
+
+
+
+
+LocationListener Function() locationService = () => GetIt.I.get<LocationListener>();
+
+typedef LocationDataChangedFunction = void Function(double);
+typedef LocationChangedFunction = void Function(double lat, double lng);
+
+abstract class LocationListener {
+
+  /// 注册数据变化的回调
+  void registerDataChangedFunction(LocationDataChangedFunction function);
+  /// 移除数据变化的回调
+  void unregisterDataChangedFunction(LocationDataChangedFunction function);
+
+  /// 移除位置变化的回调
+  void registerLocationChangedFunction(LocationChangedFunction function);
+  /// 移除位置变化的回调
+  void unregisterLocationChangedFunction(LocationChangedFunction function);
+
+  /// 更新位置变化
+  void locationChangedCallback(double lat, double lng);
+  /// 更新数据的变化
+  void locationDataChangedCallback(double angle);
+
+}
+
+class LocationServiceCenterImpl extends LocationListener {
+
+  List<LocationDataChangedFunction> _locationDataChangedFunction = List();
+  List<LocationChangedFunction> _locationChangedFunctionList = List();
+
+  @override
+  void locationChangedCallback(double lat, double lng) {
+    _locationChangedFunctionList.forEach((function) {
+      function.call(lat, lng);
+    });
+  }
+
+  @override
+  void locationDataChangedCallback(double angle) {
+    _locationDataChangedFunction.forEach((function) {
+      function.call(angle);
+    });
+  }
+
+  @override
+  void registerDataChangedFunction(LocationDataChangedFunction function) {
+    _locationDataChangedFunction.add(function);
+  }
+
+  @override
+  void registerLocationChangedFunction(LocationChangedFunction function) {
+    _locationChangedFunctionList.add(function);
+  }
+
+  @override
+  void unregisterDataChangedFunction(LocationDataChangedFunction function) {
+    _locationDataChangedFunction.remove(function);
+  }
+
+  @override
+  void unregisterLocationChangedFunction(LocationChangedFunction function) {
+    _locationChangedFunctionList.remove(function);
+  }
+
+}
+
+
+

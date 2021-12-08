@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class ScreenUtils {
@@ -97,3 +99,7 @@ class ScreenUtils {
       ? setWidth(fontSize)
       : setWidth(fontSize) / _textScaleFactor;
 }
+
+
+/// value 乘以 像素密度
+int xPixelRatio(double value) => (value * window.devicePixelRatio).toInt();

@@ -1,5 +1,7 @@
 
 
+import 'package:yc_flutter_utils/flutter_utils.dart';
+
 /// 这个使用flutter日志打印
 class LogUtils {
 
@@ -52,15 +54,18 @@ class LogUtils {
     }
   }
 
+  ///打印日志数据
   static void _printLog(String tag, String stag, Object object) {
     String da = object?.toString() ?? 'null';
-    if(tag == null || tag.isEmpty){
+    if (TextUtils.isEmpty(tag)){
       tag = _tagValue;
     }
     if (da.length <= _maxLen) {
+      //如果没有超过最长度，则直接打印
       print('$tag$stag $da');
       return;
     }
+    //如果超过长度，则进行裁切打印日志数据
     print('$tag$stag — — — — — — — — — — st — — — — — — — — — — — — —');
     while (da.isNotEmpty) {
       if (da.length > _maxLen) {

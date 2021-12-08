@@ -5,14 +5,16 @@ import 'dart:io';
 import 'package:yc_flutter_utils/log/log_utils.dart';
 import 'package:yc_flutter_utils/net/http_api_utils.dart';
 
-
+/// 网络请求核心类
 class HttpRequestClient {
 
 
   ///开始网络请求
-  static Future startRequest(String url, Function callback, {String method,
-    Map<String, String> headers, Map<String, String> params,
-    Function errorCallback}) async {
+  static Future startRequest(String url, Function callback,
+      {String method,
+        Map<String, String> headers,
+        Map<String, String> params,
+        Function errorCallback}) async {
 
     //暂时先用这个，后期看能否抽取成model
     String errorMsg;
@@ -29,7 +31,7 @@ class HttpRequestClient {
       Map<String, String> paramMap = params == null ? new Map() : params;
       HttpClientRequest request;
       //打开Http连接
-      if (HttpUtils.POST == method) {
+      if (HttpApiUtils.POST == method) {
         LogUtils.i("POST:URL="+url);
         LogUtils.i("POST:BODY="+paramMap.toString());
         //post请求
@@ -48,7 +50,7 @@ class HttpRequestClient {
         }
       }
 
-      //等待连接服务器（会将请求信息发送给服务器）
+      ///等待连接服务器（会将请求信息发送给服务器）
       HttpClientResponse response = await request.close();
 
       /*if(res.statusCode < 200 || res.statusCode >= 300) {

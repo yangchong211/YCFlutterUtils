@@ -18,11 +18,12 @@ limitations under the License.
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:yc_flutter_utils/flutter_utils.dart';
 import 'dart:async';
 import 'package:yc_flutter_utils/net/http_request.dart';
 
 ///网络请求工具类
-class HttpUtils{
+class HttpApiUtils{
 
   static const String GET = "get";
   static const String POST = "post";
@@ -35,6 +36,9 @@ class HttpUtils{
   //get请求
   static void get(String url, Function callback, {Map<String, String> params,
         Map<String, String> headers, Function errorCallback}) async {
+    if(TextUtils.isEmpty(BASE_URL)){
+      throw new Exception("base url is not null or length is not zero");
+    }
     if (!url.startsWith("http")) {
       url = BASE_URL + url;
     }

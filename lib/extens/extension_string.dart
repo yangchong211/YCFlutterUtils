@@ -8,39 +8,64 @@ import 'package:yc_flutter_utils/object/object_utils.dart';
 
 extension ExtensionString on String {
 
-  /// Checks if data is null.
-  bool isNull() => ObjectUtils.isNull(this);
+  bool isNull() {
+    return this == null || this.isEmpty || ObjectUtils.isNull(this);
+  }
+
+  bool isNotNullOrEmpty() {
+    return this != null && this.isNotEmpty;
+  }
 
   /// Checks if data is null or Blank (empty or only contains whitespace).
-  bool isNullOrBlank() => ObjectUtils.isNullOrBlank(this);
+  bool isNullOrBlank(){
+    return isNotNullOrEmpty() && ObjectUtils.isNullOrBlank(this);
+  }
 
   /// Checks if string is num (int or double).
-  bool isNum() => NumUtils.isNum(this);
+  bool isNum(){
+    return isNotNullOrEmpty() && NumUtils.isNum(this);
+  }
 
   /// Checks if string is numeric only.
   /// Numeric only doesnt accepting "." which double data type have
-  bool isNumericOnly() => ValidatorUtils.isNumericOnly(this);
+  bool isNumericOnly() {
+    return ValidatorUtils.isNumericOnly(this);
+  }
 
   /// Checks if string consist only Alphabet. (No Whitespace)
-  bool isAlphabetOnly(String s) => ValidatorUtils.isAlphabetOnly(s);
+  bool isAlphabetOnly(String s) {
+    return ValidatorUtils.isAlphabetOnly(s);
+  }
 
   /// Checks if string is boolean.
-  bool isBool() => ValidatorUtils.isBool(this);
+  bool isBool() {
+    return ValidatorUtils.isBool(this);
+  }
 
   /// Checks if string is vector image file path.
-  bool isVector() => ValidatorUtils.isVector(this);
+  bool isVector() {
+    return ValidatorUtils.isVector(this);
+  }
 
   /// Checks if string is image file path.
-  bool isImage() => ValidatorUtils.isImage(this);
+  bool isImage() {
+    return ValidatorUtils.isImage(this);
+  }
 
   /// Checks if string is audio file path.
-  bool isAudio() => ValidatorUtils.isAudio(this);
+  bool isAudio() {
+    return ValidatorUtils.isAudio(this);
+  }
 
   /// Checks if string is video file path.
-  bool isVideo() => ValidatorUtils.isVideo(this);
+  bool isVideo() {
+    return ValidatorUtils.isVideo(this);
+  }
 
   /// Checks if string is txt file path.
-  bool isTxt() => ValidatorUtils.isTxt(this);
+  bool isTxt() {
+    return ValidatorUtils.isTxt(this);
+  }
 
   /// Checks if string is Doc file path.
   bool isDocument() => ValidatorUtils.isDocument(this);

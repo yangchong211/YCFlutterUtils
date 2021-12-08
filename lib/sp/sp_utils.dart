@@ -11,6 +11,7 @@ import 'package:yc_flutter_utils/extens/extension_list.dart';
 class SpUtils {
 
   SpUtils._();
+
   static SharedPreferences _prefs;
 
   /// 初始化，必须要初始化

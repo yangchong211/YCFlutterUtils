@@ -17,11 +17,6 @@ class CustomRaisedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       onPressed: () {
-        //第一种写法
-        //Navigator.push(context, new MaterialPageRoute(builder: (context) => _pageNavigator));
-        //第二张路由写法
-        // Navigator.of(context)
-        //     .push(new MaterialPageRoute(builder: (context) => _pageNavigator));
         NavigatorUtils.push(context, _pageNavigator);
       },
       child: Text(

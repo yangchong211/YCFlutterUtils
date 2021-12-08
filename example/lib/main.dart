@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yc_flutter_utils/i18/localizations.dart';
 import 'package:yc_flutter_utils/i18/template_time.dart';
+import 'package:yc_flutter_utils/locator/get_it.dart';
+import 'package:yc_flutter_utils/screen/screen_adaptation_utils.dart';
+import 'package:yc_flutter_utils/screen/screen_adaption.dart';
 import 'package:yc_flutter_utils/sp/sp_utils.dart';
+import 'package:yc_flutter_utils/state/page_change_notifier.dart';
 import 'package:yc_flutter_utils/utils/flutter_init_utils.dart';
 import 'package:yc_flutter_utils/except/handle_exception.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,9 +27,12 @@ import 'package:yc_flutter_utils_example/utils/num_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/object_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/other_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/parser_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/polling_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/regex_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/screen_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/service_locator.dart';
 import 'package:yc_flutter_utils_example/utils/sp_utils_page.dart';
+import 'package:yc_flutter_utils_example/utils/state_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/storage_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/system_utils_page.dart';
 import 'package:yc_flutter_utils_example/utils/text_utils_page.dart';
@@ -63,7 +71,9 @@ void main() {
   Future(() async {
     await SpUtils.init();
   });
-
+  // 初始化屏幕适配
+  ScreenAdaptationUtils.init(ScreenAdaptation.none());
+  initSpi();
 
   //await FlutterInitUtils.fetchInitUtils();
   //FlutterInitUtils.fetchInitUtils();
@@ -71,6 +81,12 @@ void main() {
   hookCrash(() {
     runApp(MainApp());
   });
+}
+
+Future initSpi() async {
+  GetIt.instance.registerLazySingleton<PollingService>(() => PollingServiceImpl());
+  GetIt.instance.registerLazySingleton<LocationListener>(() => LocationServiceCenterImpl());
+  GetIt.instance.registerLazySingleton<BusinessService>(() => BusinessServiceImpl());
 }
 
 
@@ -87,6 +103,11 @@ class MainApp extends StatelessWidget{
         primarySwatch: Colors.blue,
       ),
       home: new HomePage(title: 'Flutter常用工具类'),
+      builder: (BuildContext context, Widget child) {
+        return MultiProvider(providers: [
+          ChangeNotifierProvider(create: (context) => PageChangeNotifier()),
+        ], child: ServiceLocator(child));
+      },
     );
   }
 }
@@ -177,6 +198,9 @@ class HomePageState extends State<HomePage>{
               CustomRaisedButton(new ParserPage(), "MarkupUtils 解析xml/html工具类"),
               CustomRaisedButton(new SystemPage(), "SystemUtils 系统工具类"),
               CustomRaisedButton(new BytePage(), "Byte 字节工具类"),
+              CustomRaisedButton(new PollingPage(), "TaskQueueUtils 队列工具类"),
+              CustomRaisedButton(new StatePage(), "PageBaseState 状态切换管理"),
+              CustomRaisedButton(new StatePage(), "MVP 案例时间展示"),
               CustomRaisedButton(new OtherPage(), "其他一些工具类"),
             ],
           ),
