@@ -17,7 +17,7 @@ import 'image_page.dart';
 
 class BasicWidgetPage extends StatefulWidget{
 
-  String title;
+  final String title;
 
   BasicWidgetPage(this.title);
 
@@ -29,31 +29,6 @@ class BasicWidgetPage extends StatefulWidget{
 }
 
 class BasicWidgetState extends State<BasicWidgetPage>{
-
-  @override
-  void initState() {
-    super.initState();
-    LogUtils.d('BasicWidgetState---initState');
-  }
-
-  @override
-  void didChangeDependencies() {
-    LogUtils.d('BasicWidgetState---didChangeDependencies');
-    super.didChangeDependencies();
-  }
-
-  @override
-  void deactivate() {
-    LogUtils.d('BasicWidgetState---deactivate');
-    super.deactivate();
-  }
-
-  @override
-  void dispose() {
-    LogUtils.d('BasicWidgetState---dispose');
-    super.dispose();
-  }
-
 
   @override
   Widget build(BuildContext context) {
