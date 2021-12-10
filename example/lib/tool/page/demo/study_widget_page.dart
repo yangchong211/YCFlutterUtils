@@ -17,11 +17,20 @@ class StudyWidgetState extends State<StudyWidgetPage>{
     return Container(
       color: Colors.brown,
       height: double.infinity,
-      child: Container(
-        height: 100,
-        width: 100,
-        child: Text("学习"),
-        color: Colors.amberAccent,
+      child: Row(
+        children: [
+          new Image.network(
+            "https://p1.ssl.qhmsg.com/dr/220__/t01d5ccfbf9d4500c75.jpg",
+            width: 100,
+            height: 100,
+          ),
+          new Text(
+              "改变UI",
+            style: TextStyle(
+              fontSize: 16
+            ),
+          ),
+        ],
       ),
     );
   }
