@@ -14,6 +14,8 @@ class StudyWidgetPage extends StatefulWidget{
 class StudyWidgetState extends State<StudyWidgetPage>{
   @override
   Widget build(BuildContext context) {
+    AppBarTheme appBarTheme = Theme.of(context).appBarTheme;
+
     return Container(
       color: Colors.brown,
       height: double.infinity,
