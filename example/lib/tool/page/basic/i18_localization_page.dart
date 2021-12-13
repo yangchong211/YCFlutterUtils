@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yc_flutter_utils/flutter_utils.dart';
 import 'package:yc_flutter_utils/i18/extension.dart';
 import 'package:yc_flutter_utils/i18/template_time.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 
 class LocalizationsPage extends StatefulWidget{
   @override
@@ -60,7 +60,7 @@ class LocalizationsPageState extends State<LocalizationsPage>{
                 "获取国际化，时间格式1:" +time1,
                 style: new TextStyle(
                   fontSize: 18.0,
-                  color: YCColors.color_FF0000,
+                  color: FlutterColors.color_FF0000,
                 ),
                 textDirection: TextDirection.rtl,
               ),
@@ -68,7 +68,7 @@ class LocalizationsPageState extends State<LocalizationsPage>{
                 "获取国际化，时间格式2:" +time2,
                 style: new TextStyle(
                   fontSize: 18.0,
-                  color: YCColors.color_FF0000,
+                  color: FlutterColors.color_FF0000,
                 ),
                 textDirection: TextDirection.rtl,
               ),

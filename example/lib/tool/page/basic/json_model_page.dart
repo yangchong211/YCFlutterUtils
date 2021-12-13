@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 
 class JsonModelPage extends StatefulWidget{
   @override
@@ -28,7 +28,7 @@ class JsonModelPageState extends State<JsonModelPage>{
                 "这个是一个文本控件",
                 style: new TextStyle(
                   fontSize: 18.0,
-                  color: YCColors.color_FF0000,
+                  color: FlutterColors.color_FF0000,
                 ),
                 maxLines: 3,
                 textDirection: TextDirection.rtl,

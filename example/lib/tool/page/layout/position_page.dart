@@ -3,8 +3,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:yc_flutter_utils/log/log_utils.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 import 'package:yc_flutter_utils/screen/screen_utils.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+
+
 class PositionPage extends StatefulWidget{
 
   @override
@@ -96,7 +98,7 @@ class _LeftComponentState extends State<LeftComponent> {
             margin: EdgeInsets.only(left: 16, bottom: 16, top: 4),
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             decoration: new BoxDecoration(
-              color: YCColors.color_F0,
+              color: FlutterColors.color_F0,
               borderRadius: BorderRadius.all(Radius.circular(10)),
               boxShadow: [
                 BoxShadow(
@@ -167,7 +169,7 @@ class _RightComponentState extends State<RightComponent> {
               margin: EdgeInsets.only(bottom: 16),
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: new BoxDecoration(
-                  color: YCColors.color_F0,
+                  color: FlutterColors.color_F0,
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   boxShadow: [
                     BoxShadow(
@@ -192,7 +194,7 @@ class _RightComponentState extends State<RightComponent> {
               margin: EdgeInsets.only(bottom: 16),
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: new BoxDecoration(
-                  color: YCColors.color_F0,
+                  color: FlutterColors.color_F0,
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   boxShadow: [
                     BoxShadow(
@@ -218,7 +220,7 @@ class _RightComponentState extends State<RightComponent> {
               margin: EdgeInsets.only(bottom: 16),
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: new BoxDecoration(
-                  color: YCColors.color_F0,
+                  color: FlutterColors.color_F0,
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   boxShadow: [
                     BoxShadow(

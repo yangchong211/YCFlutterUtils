@@ -2,7 +2,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 
 class BoxPage extends StatefulWidget{
   @override
@@ -61,7 +61,7 @@ class BoxState extends State<BoxPage>{
                 width: 80.0,
                 height: 80.0,
                 child: Container(
-                  color: YCColors.color_2EBFD9,
+                  color: FlutterColors.color_2EBFD9,
                   child: Text("文本"),
                 ),
             ),

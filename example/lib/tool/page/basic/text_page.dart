@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yc_flutter_utils/calcu/calculate_utils.dart';
 import 'package:yc_flutter_utils/log/log_utils.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 
 class TextPage extends StatefulWidget{
   @override
@@ -111,19 +111,19 @@ class TextPageState extends State<TextPage>{
                     //样式
                     style: new TextStyle(
                       fontSize: 18.0,
-                      color: YCColors.color_FF0000,
+                      color: FlutterColors.color_FF0000,
                       wordSpacing: 3,
                     ),
                   ),
               ),
               Padding(padding: EdgeInsetsDirectional.only(top: 10)),
               Container(
-                color: YCColors.color_2EBFD9,
+                color: FlutterColors.color_2EBFD9,
                 child: new Text(
                   "这个是一个文本控件",
                   style: new TextStyle(
                     fontSize: 18.0,
-                    color: YCColors.color_FF0000,
+                    color: FlutterColors.color_FF0000,
                   ),
                   maxLines: 1,
                   textDirection: TextDirection.rtl,
@@ -132,12 +132,12 @@ class TextPageState extends State<TextPage>{
               Padding(padding: EdgeInsetsDirectional.only(top: 10)),
               Container(
                 width: textWidth,
-                color: YCColors.color_2EBFD9,
+                color: FlutterColors.color_2EBFD9,
                 child: new Text(
                   "这个是一个文本控件",
                   style: new TextStyle(
                     fontSize: 18.0,
-                    color: YCColors.color_FF0000,
+                    color: FlutterColors.color_FF0000,
                   ),
                   maxLines: 1,
                   textDirection: TextDirection.rtl,
@@ -259,7 +259,7 @@ class TextPageState extends State<TextPage>{
           text: "优先看整体，文字居中",
           style: new TextStyle(
             fontSize: 16.0,
-            color: YCColors.color_00
+            color: FlutterColors.color_00
           ),
         ),
         textAlign: TextAlign.center,

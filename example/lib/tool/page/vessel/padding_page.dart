@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yc_flutter_utils_example/res/color/yc_colors.dart';
+import 'package:yc_flutter_utils/res/flutter_colors.dart';
 
 //Padding控件即填充控件，能给子控件插入给定的填充。
 class PaddingPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class PaddingPage extends StatelessWidget {
         children: [
           new Text('EdgeInsetsGeometry是一个抽象类，开发中，我们一般都使用EdgeInsets类'),
           Container(
-            color: YCColors.color_2EBFD9,
+            color: FlutterColors.color_2EBFD9,
             child: new Padding(
               //all(double value) : 所有方向均使用相同数值的填充。
               padding: const EdgeInsets.all(80.0),
