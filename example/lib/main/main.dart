@@ -21,6 +21,7 @@ import 'package:yc_flutter_utils_example/util/widget/custom_raised_button.dart';
 
 
 void main() {
+
   //初始化工具类操作
   Future(() async {
     await FlutterInitUtils.fetchInitUtils();
@@ -48,16 +49,8 @@ void main() {
   //Locale myLocale = Localizations.localeOf(context);
   LocalizationTime.locale = new Locale("zh","CN");
 
-  Future(() async {
-    await SpUtils.init();
-  });
-  // 初始化屏幕适配
-  ScreenAdaptationUtils.init(ScreenAdaptation.none());
   initSpi();
 
-  //await FlutterInitUtils.fetchInitUtils();
-  //FlutterInitUtils.fetchInitUtils();
-  //runApp(MainApp());
   hookCrash(() {
     runApp(MainApp());
   });
