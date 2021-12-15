@@ -25,6 +25,7 @@ class DemoWidgetState extends State<DemoWidgetPage>{
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CustomRaisedButton(new StudyWidgetPage(), "认识widget"),
+
         ],
       ),
     );
