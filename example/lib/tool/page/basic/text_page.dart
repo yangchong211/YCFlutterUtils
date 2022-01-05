@@ -14,18 +14,9 @@ class TextPage extends StatefulWidget{
   }
 }
 
-class Model {
-  Future<List<int>> preloadAnimAsset(String path) async {
-    if (path == null || path.length == 0) {
-      return Future.value(List<int>(0));
-    }
-    return (await rootBundle.load(path)).buffer.asUint8List();
-  }
-}
 class TextPageState extends State<TextPage>{
   Model _model;
-  static final String _INCOME_ALL_IN_ONE_ASSET =
-      "assets/lottie/i ncome_all_in_one.svga";
+
   @override
   void initState() {
     _model = Model();
@@ -42,7 +33,6 @@ class TextPageState extends State<TextPage>{
     super.dispose();
   }
 
-
   Future getNetworkData(){
     return Future(() {
       //1. 将耗时操作包裹到Future的回调函数中
@@ -57,20 +47,6 @@ class TextPageState extends State<TextPage>{
 
   @toDo("这个定义的变量", "注意初始化")
   String text1 = "初始化值";
-
-
-  /// 处理文字
-  static String getTextString(String str){
-    if(str==null || str.length==0){
-      return "";
-    }
-    //数字金额，最长是6位，极限是8位
-    if(str.length>8){
-      return str.substring(0,8);
-    }
-    return str;
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +64,7 @@ class TextPageState extends State<TextPage>{
             children: <Widget>[
               new Text(
                 //内容
-                getTextString(s),
+                "这个是文本内容",
                 //最大3行
                 maxLines: 3,
                 //对齐方式
@@ -116,7 +92,6 @@ class TextPageState extends State<TextPage>{
                     ),
                   ),
               ),
-              Padding(padding: EdgeInsetsDirectional.only(top: 10)),
               Container(
                 color: FlutterColors.color_2EBFD9,
                 child: new Text(
@@ -335,6 +310,16 @@ class TextPageState extends State<TextPage>{
   }
 
 
+}
+
+
+class Model {
+  Future<List<int>> preloadAnimAsset(String path) async {
+    if (path == null || path.length == 0) {
+      return Future.value(List<int>(0));
+    }
+    return (await rootBundle.load(path)).buffer.asUint8List();
+  }
 }
 
 /// 自定义注解

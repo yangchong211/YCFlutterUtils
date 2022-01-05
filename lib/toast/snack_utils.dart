@@ -23,7 +23,10 @@ class SnackUtils{
     if(scaffoldKey==null){
       scaffoldKey = new GlobalKey<ScaffoldState>();
     }
-    scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text(msg)));
+    if(scaffoldKey.currentState!=null){
+      scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text(msg)));
+    }
+
   }
 
 

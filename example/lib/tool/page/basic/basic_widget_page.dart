@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:yc_flutter_utils/log/log_utils.dart';
+import 'package:yc_flutter_utils_example/tool/page/basic/ink_well_page.dart';
 import 'package:yc_flutter_utils_example/tool/page/basic/switch_page.dart';
 import 'package:yc_flutter_utils_example/tool/page/basic/text_field_page.dart';
 import 'package:yc_flutter_utils_example/tool/page/basic/text_page.dart';
@@ -47,6 +48,7 @@ class BasicWidgetState extends State<BasicWidgetPage>{
             CustomRaisedButton(new IconPage(), "Icon组件"),
             CustomRaisedButton(new ButtonPage(), "Button控件"),
             CustomRaisedButton(new SwitchPage(), "单选开关和复选框控件"),
+            CustomRaisedButton(new InkWellPage(), "InkWell控件"),
             CustomRaisedButton(new IndicatorProgressPage(), "进度指示器"),
             CustomRaisedButton(new LocalizationsPage(), "国际化"),
           ],
