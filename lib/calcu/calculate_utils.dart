@@ -50,7 +50,7 @@ class CalculateUtils {
       double maxWidth, int maxLines) {
     //创建painter
     TextPainter painter = TextPainter(
-      locale: Localizations.localeOf(context, nullOk: true),
+      locale: Localizations.localeOf(context),
       maxLines: maxLines,
       textDirection: TextDirection.ltr,
       text: TextSpan(
@@ -72,7 +72,7 @@ class CalculateUtils {
       double maxWidth, int maxLines) {
     //创建painter
     TextPainter painter = TextPainter(
-      locale: Localizations.localeOf(context, nullOk: true),
+      locale: Localizations.localeOf(context),
       maxLines: maxLines,
       textDirection: TextDirection.ltr,
       text: TextSpan(
@@ -92,7 +92,7 @@ class CalculateUtils {
       int maxLines, double maxWidth, TextStyle style) {
     maxWidth = max(0.0,maxWidth);
     TextPainter painter = TextPainter(
-        locale: Localizations.localeOf(context, nullOk: true),
+        locale: Localizations.localeOf(context),
         maxLines: maxLines,
         textDirection: TextDirection.ltr,
         textAlign: TextAlign.start,

@@ -7,7 +7,6 @@ import 'package:yc_flutter_utils/locator/get_it.dart';
 import 'package:yc_flutter_utils/state/page_change_notifier.dart';
 import 'package:yc_flutter_utils/utils/flutter_init_utils.dart';
 import 'package:yc_flutter_utils/except/handle_exception.dart';
-import 'package:yc_flutter_utils_example/android/pages/main/android_main.dart';
 import 'package:yc_flutter_utils_example/tool/page/event/provider/business_pattern.dart';
 import 'package:yc_flutter_utils_example/tool/tool_home_page.dart';
 import 'package:yc_flutter_utils_example/util/utils/get_it_page.dart';
@@ -116,7 +115,6 @@ class AppPageState extends State<AppPage>{
             children: <Widget>[
               CustomRaisedButton(new UtilsHomePage(title: 'Flutter常用工具库'), "Flutter常用工具库"),
               CustomRaisedButton(new ToolHomePage(title: 'Flutter组件工具库'), "Flutter组件工具库"),
-              CustomRaisedButton(new AndroidMain(), "Flutter案例玩Android"),
             ],
           ),
         ),

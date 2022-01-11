@@ -25,7 +25,7 @@ class _PageState extends State<I18Page> {
   @override
   void initState() {
     super.initState();
-    var dateTime = DateUtils.getNowDateMs();
+    var dateTime = DateToolUtils.getNowDateMs();
     time1 = LocalizationTime.getFormat1(dateTime);
     time2 = LocalizationTime.getFormat2(dateTime);
   }

@@ -33,7 +33,7 @@ class LocalizationTime {
   static String _getFormat(Locale locale, int timestamp,
       Map<String, String> mapTemplate) {
     var formatTemplate = TemplateTime.getFormatTemplate(locale, mapTemplate);
-    String formatDateMs = DateUtils.formatDateMilliseconds(timestamp,format: formatTemplate);
+    String formatDateMs = DateToolUtils.formatDateMilliseconds(timestamp,format: formatTemplate);
     return formatDateMs;
   }
 }

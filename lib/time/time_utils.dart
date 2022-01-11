@@ -77,11 +77,11 @@ class TimeUtils {
 
     String timeline;
     if (_info.customYesterday().isNotEmpty &&
-        DateUtils.isYesterdayByMilliseconds(ms, _locTimeMs)) {
+        DateToolUtils.isYesterdayByMilliseconds(ms, _locTimeMs)) {
       return _getYesterday(ms, _info, _dayFormat);
     }
 
-    if (!DateUtils.yearIsEqualByMilliseconds(ms, _locTimeMs)) {
+    if (!DateToolUtils.yearIsEqualByMilliseconds(ms, _locTimeMs)) {
       timeline = _getYear(ms, _dayFormat);
       if (timeline.isNotEmpty) return timeline;
     }
@@ -133,22 +133,22 @@ class TimeUtils {
     int _locTimeMs = locMs ?? DateTime.now().millisecondsSinceEpoch;
     int elapsed = _locTimeMs - ms;
     if (elapsed < 0) {
-      return DateUtils.formatDateMilliseconds(ms, format: formatToday);
+      return DateToolUtils.formatDateMilliseconds(ms, format: formatToday);
     }
 
-    if (DateUtils.isToday(ms, locMs: _locTimeMs)) {
-      return DateUtils.formatDateMilliseconds(ms, format: formatToday);
+    if (DateToolUtils.isToday(ms, locMs: _locTimeMs)) {
+      return DateToolUtils.formatDateMilliseconds(ms, format: formatToday);
     }
 
-    if (DateUtils.isYesterdayByMilliseconds(ms, _locTimeMs)) {
+    if (DateToolUtils.isYesterdayByMilliseconds(ms, _locTimeMs)) {
       return languageCode == 'zh' ? '昨天' : 'Yesterday';
     }
 
-    if (DateUtils.isWeek(ms, locMs: _locTimeMs)) {
-      return DateUtils.getWeekdayByMilliseconds(ms,
+    if (DateToolUtils.isWeek(ms, locMs: _locTimeMs)) {
+      return DateToolUtils.getWeekdayByMilliseconds(ms,
           languageCode: languageCode, short: short);
     }
-    return DateUtils.formatDateMilliseconds(ms, format: format);
+    return DateToolUtils.formatDateMilliseconds(ms, format: format);
   }
 
   /// get Yesterday.
@@ -160,7 +160,7 @@ class TimeUtils {
   ) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
-            ? (' ' + DateUtils.formatDateMilliseconds(ms, format: 'HH:mm'))
+            ? (' ' + DateToolUtils.formatDateMilliseconds(ms, format: 'HH:mm'))
             : '');
   }
 
@@ -171,7 +171,7 @@ class TimeUtils {
     DayFormat dayFormat,
   ) {
     if (dayFormat != DayFormat.Simple) {
-      return DateUtils.formatDateMilliseconds(ms,
+      return DateToolUtils.formatDateMilliseconds(ms,
           format: (dayFormat == DayFormat.Common
               ? 'yyyy-MM-dd'
               : 'yyyy-MM-dd HH:mm'));
@@ -194,10 +194,10 @@ class TimeUtils {
             : info.days(days.round()));
         break;
       case DayFormat.Common:
-        timeline = DateUtils.formatDateMilliseconds(ms, format: 'MM-dd');
+        timeline = DateToolUtils.formatDateMilliseconds(ms, format: 'MM-dd');
         break;
       case DayFormat.Full:
-        timeline = DateUtils.formatDateMilliseconds(ms, format: 'MM-dd HH:mm');
+        timeline = DateToolUtils.formatDateMilliseconds(ms, format: 'MM-dd HH:mm');
         break;
     }
     return timeline;

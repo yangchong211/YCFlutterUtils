@@ -47,7 +47,6 @@ class AnimationPageRoute<T> extends PageRoute<T> {
         assert(animationType != null),
         assert(maintainState != null),
         assert(fullscreenDialog != null),
-        assert(opaque),
         super(settings: settings, fullscreenDialog: fullscreenDialog);
 
   final WidgetBuilder builder;

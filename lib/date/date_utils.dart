@@ -2,7 +2,7 @@
 import 'package:yc_flutter_utils/date/data_formats.dart';
 
 /// 日期时间工具类
-class DateUtils {
+class DateToolUtils {
 
   /// get DateTime By DateStr.
   /// 将字符串时间转化为DateTime
@@ -194,7 +194,7 @@ class DateUtils {
         DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
     DateTime now;
     if (locMs != null) {
-      now = DateUtils.getDateTimeByMs(locMs);
+      now = DateToolUtils.getDateTimeByMs(locMs);
     } else {
       now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
@@ -230,7 +230,7 @@ class DateUtils {
     DateTime _old = DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
     DateTime _now;
     if (locMs != null) {
-      _now = DateUtils.getDateTimeByMs(locMs, isUtc: isUtc);
+      _now = DateToolUtils.getDateTimeByMs(locMs, isUtc: isUtc);
     } else {
       _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
@@ -341,8 +341,8 @@ class DateUtils {
   /// (2020, 12, 31) -> add 2 months -> (2021, 2, 28).
   /// (2020, 12, 31) -> add 1 month -> (2021, 1, 31).
   static DateTime addMonths(DateTime date, int months) {
-    var res = DateUtils.copyWith(date, month: date.month + months);
-    if (date.day != res.day) res = DateUtils.copyWith(res, day: 0);
+    var res = DateToolUtils.copyWith(date, month: date.month + months);
+    if (date.day != res.day) res = DateToolUtils.copyWith(res, day: 0);
     return res;
   }
 
