@@ -18,6 +18,8 @@ class JsonUtilsState extends State<JsonUtilsPage>{
   String title2 = "初始化值";
   String title3 = "初始化值";
   String title4 = "初始化值";
+  String title5 = "初始化值";
+  String title6 = "初始化值";
   City city = new City("北京");
 
   @override
@@ -34,6 +36,7 @@ class JsonUtilsState extends State<JsonUtilsPage>{
   Widget build(BuildContext context) {
 
     String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+    String jsonTxt = '{ "name": "yangchong", "email": "yangchong211@163.com"}';
     List<City> cityList = JsonUtils.getObjList(listStr, (v) => City.fromJson(v));
 
 
@@ -42,9 +45,8 @@ class JsonUtilsState extends State<JsonUtilsPage>{
         appBar: new AppBar(title: new Text("测试JsonUtils的功能")),
         body: ListView(
           children: <Widget>[
-            new Text("测试GetItHelper的功能"),
             new Text(title1),
-            new Text("将对象[值]转换为JSON字符串：" + JsonUtils.encodeObj(city)),
+            new Text("将对象[值]转换为JSON字符串：" + JsonUtils.encodeObject(city)),
             RaisedButton(
               onPressed: () {
                 String objStr = "{\"name\":\"成都市\"}";
@@ -60,17 +62,43 @@ class JsonUtilsState extends State<JsonUtilsPage>{
             new Text(title2),
             RaisedButton(
               onPressed: () {
-
                 setState(() {
-                  setState(() {
-                    title1 = "City对象列表："+cityList.length.toString();
-                  });
+                  title1 = "City对象列表："+cityList.length.toString();
                 });
               },
               color: const Color(0xffff0000),
               child: new Text('转换JSON字符串列表[源]到对象列表'),
             ),
-
+            new Divider(),
+            new Text(title3),
+            RaisedButton(
+              onPressed: () {
+                Map<String, dynamic> user = JsonUtils.getString(jsonTxt, (v) => {});
+                setState(() {
+                  title3 = "City对象列表：${user["name"]}";
+                });
+              },
+              color: const Color(0xffff0000),
+              child: new Text('转换JSON字符串转化为map'),
+            ),
+            new Divider(),
+            new Text(title4),
+            new Text("将对象[值]转换为JSON字符串：" + JsonUtils.encodeObject(city)),
+            RaisedButton(
+              onPressed: () {
+                Map<String,dynamic> map = new Map();
+                map["name"] = "yangchong";
+                map["age"] = 27;
+                map["email"] = "yangchong211@163.com";
+                var encodeObject = JsonUtils.encodeObject(map);
+                setState(() {
+                  title4 = "json字符串：$encodeObject";
+                });
+              },
+              color: const Color(0xffff0000),
+              child: new Text('将map对象转化为json字符串'),
+            ),
+            new Divider(),
             new Text("将对象[值]转换为JSON字符串：" + cityList.length.toString()),
             RaisedButton(
               onPressed: () {

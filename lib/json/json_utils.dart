@@ -29,13 +29,14 @@ class JsonUtils {
 
   /// 将对象[值]转换为JSON字符串
   /// Converts object [value] to a JSON string.
-  static String encodeObj(dynamic value) {
+  static String encodeObject(dynamic value) {
     return value == null ? null : json.encode(value);
   }
 
+  /// 字符串转json
   /// 转换JSON字符串到对象
   /// Converts JSON string [source] to object.
-  static T getObj<T>(String source, T f(Map v)) {
+  static T getString<T>(String source, T f(Map v)) {
     if (source == null || source.isEmpty) return null;
     try {
       Map map = json.decode(source);
