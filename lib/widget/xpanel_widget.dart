@@ -32,9 +32,9 @@ class XPanelWidget extends StatefulWidget {
     //主体内容
     @required this.contentWidget,
     //默认显示的高度
-    this.initHeight = 0,
+    @required this.initHeight,
     //默认最高的高度
-    this.totalHeight = 100,
+    @required this.totalHeight,
     //间距
     this.margin,
     //XPanel的回调监听
@@ -75,8 +75,8 @@ class _XPanelState extends State<XPanelWidget> with TickerProviderStateMixin{
     //XPanel最开始是默认的初始化高度
     _changeHeight = widget.initHeight;
     _animalController = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: 200),
+      vsync: this,
+      duration: Duration(milliseconds: 200),
     );
   }
 
@@ -89,13 +89,13 @@ class _XPanelState extends State<XPanelWidget> with TickerProviderStateMixin{
   Widget _headerContent() {
     return Container(
       // color: Colors.red,
-      height: widget.initHeight,
-      width: MediaQuery.of(context).size.width,
-      margin: widget.margin ?? EdgeInsets.only(
-        left: 0,
-        right: 0,
-      ),
-      child: widget.headWidget
+        height: widget.initHeight,
+        width: MediaQuery.of(context).size.width,
+        margin: widget.margin ?? EdgeInsets.only(
+          left: 0,
+          right: 0,
+        ),
+        child: widget.headWidget
     );
   }
 
@@ -151,7 +151,7 @@ class _XPanelState extends State<XPanelWidget> with TickerProviderStateMixin{
         ),
         onNotification: (Notification notification) {
           switch (notification.runtimeType) {
-            //在运行的时候
+          //在运行的时候
             case ScrollUpdateNotification:
               ScrollUpdateNotification scrollNotification = notification;
               _scrollPixels = scrollNotification.metrics.pixels;
@@ -180,8 +180,8 @@ class _XPanelState extends State<XPanelWidget> with TickerProviderStateMixin{
     }
 
     var curve = CurvedAnimation(
-        parent: _animalController,
-        curve: Cubic(0.25, 0.1, 0.25, 1),
+      parent: _animalController,
+      curve: Cubic(0.25, 0.1, 0.25, 1),
     );
     //开始到结束动画
     _animation = Tween(begin: start, end: end).animate(curve)
