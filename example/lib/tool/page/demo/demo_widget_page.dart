@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:yc_flutter_utils_example/tool/page/demo/study_widget_page.dart';
-import 'package:yc_flutter_utils_example/tool/page/rlab_im_map_page.dart';
 import 'package:yc_flutter_utils_example/util/widget/custom_raised_button.dart';
 
 class DemoWidgetPage extends StatefulWidget{
@@ -25,7 +24,7 @@ class DemoWidgetState extends State<DemoWidgetPage>{
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          CustomRaisedButton(new RLabImMapPage(), "认识widget"),
+          CustomRaisedButton(new StudyWidgetPage(), "认识widget"),
 
         ],
       ),

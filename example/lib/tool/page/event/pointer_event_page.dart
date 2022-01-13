@@ -58,6 +58,7 @@ class PointerEventState extends State<PointerEventPage>{
                   height: 150.0,
                   child: Text(_event?.toString()??"",style: TextStyle(color: Colors.white)),
                 ),
+
                 onPointerDown: (PointerDownEvent event) => setState(()=>_event=event),
                 onPointerMove: (PointerMoveEvent event) => setState(()=>_event=event),
                 onPointerUp: (PointerUpEvent event) => setState(()=>_event=event),
