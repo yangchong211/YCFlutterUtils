@@ -93,7 +93,7 @@ class GradientButton extends StatelessWidget{
   ///构造方法
   GradientButton({
     //该注解表示字段一定要输出
-    @required this.widget,
+    this.widget,
     this.height,
     this.width,
     this.colors,
